@@ -1,0 +1,3382 @@
+
+
+HI-TECH Software PICC Macro Assembler V9.60PL5 build 3884 
+                                                      Sun Nov 02 19:27:51 2014
+
+HI-TECH Software Omniscient Code Generator build 3884
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code 
+                                 Generator build 3884"
+     2                           
+     3                           	processor	16F684
+     4                           clrc	macro
+     5                           	bcf	status,0
+     6  0000                     	endm
+     7                           clrz	macro
+     8                           	bcf	status,2
+     9  0000                     	endm
+    10                           setc	macro
+    11                           	bsf	status,0
+    12  0000                     	endm
+    13                           setz	macro
+    14                           	bsf	status,2
+    15  0000                     	endm
+    16                           skipc	macro
+    17                           	btfss	status,0
+    18  0000                     	endm
+    19                           skipz	macro
+    20                           	btfss	status,2
+    21  0000                     	endm
+    22                           skipnc	macro
+    23                           	btfsc	status,0
+    24  0000                     	endm
+    25                           skipnz	macro
+    26                           	btfsc	status,2
+    27  0000                     	endm
+    28  0000                     indf	equ	0
+    29  0000                     indf0	equ	0
+    30  0000                     pc	equ	2
+    31  0000                     pcl	equ	2
+    32  0000                     status	equ	3
+    33  0000                     fsr	equ	4
+    34  0000                     fsr0	equ	4
+    35  0000                     c	equ	1
+    36  0000                     z	equ	0
+    37  0000                     pclath	equ	10
+    38                           # 8 "C:\Documents and Settings\Jayamma\My Docum
+                                 ents\PIC\PIC_TEst\main.c"
+    39                           	psect config,class=CONFIG,delta=2 ;#
+    40                           # 8 "C:\Documents and Settings\Jayamma\My Docum
+                                 ents\PIC\PIC_TEst\main.c"
+    41  2007  30C4               	dw 0x3FFC & 0x3FF7 & 0x3FEF & 0x3FDF & 0x3FFF 
+                                 & 0x3FFF & 0x3CFF & 0x3BFF & 0x37FF ;#
+    42                           global __tempreg
+    43  0000                     __tempreg	set	32
+    44                           global __Lrbss_0, __Hrbss_0
+    45  0000                     __Lrbss_0 set 0x64
+    46  0000                     __Hrbss_0 set 0x70
+    47                           global __Lcommon, __Hcommon
+    48  0000                     __Lcommon set 0x71
+    49  0000                     __Hcommon set 0x7E
+    50                           global __Lrdata_0, __Hrdata_0
+    51  0000                     __Lrdata_0	equ	0x62
+    52  0000                     __Hrdata_0	equ	0x64
+    53                           global __Lramdata, __Lrdata_0, __Hramdata, __Hr
+                                 data_0
+    54  0000                     __Lramdata	set	__Lrdata_0
+    55  0000                     __Hramdata	set	__Hrdata_0
+    56                           	GLOBAL	__databank
+    57  0000                     __databank	EQU	0
+    58  0000                     _Read_Adc_E0_temp	equ	??_Read_Adc_E0+0
+    59                           	global	_Read_Adc_E0_temp
+    60  0000                     _Read_Adc_E0_ret_val	equ	??_Read_Adc_E0+1
+    61                           	global	_Read_Adc_E0_ret_val
+    62  0000                     _Read_Adc_E1_temp	equ	??_Read_Adc_E1+0
+    63                           	global	_Read_Adc_E1_temp
+    64  0000                     _Read_Adc_E1_ret_val	equ	??_Read_Adc_E1+1
+    65                           	global	_Read_Adc_E1_ret_val
+    66  0000                     _GetTimer_State_TimerID	equ	??_GetTimer_State+0
+    67                           	global	_GetTimer_State_TimerID
+    68  0000                     _Stop_Timer_TimerID	equ	??_Stop_Timer+0
+    69                           	global	_Stop_Timer_TimerID
+    70  0000                     _read_pressure_switch_ret_val	equ	??_read_press
+                                 ure_switch+0
+    71                           	global	_read_pressure_switch_ret_val
+    72  0000                     _init_SWTimer_counter	equ	??_init_SWTimer+0
+    73                           	global	_init_SWTimer_counter
+    74  0000                     _Start_Timer_Timer_ID	equ	??_Start_Timer+0
+    75                           	global	_Start_Timer_Timer_ID
+    76  0000                     _Start_Timer_TimeoutVal	equ	?_Start_Timer+0
+    77                           	global	_Start_Timer_TimeoutVal
+    78  0000                     _Read_Adc_Channel	equ	??_Read_Adc+0
+    79                           	global	_Read_Adc_Channel
+    80  0000                     _adc_delay_x	equ	??_adc_delay+0
+    81                           	global	_adc_delay_x
+    82  0000                     _adc_delay_y	equ	??_adc_delay+1
+    83                           	global	_adc_delay_y
+    84                           ;Data sizes: Strings 0, constant 0, data 2, bss
+                                  0, persistent 0 stack 14
+    85                           	global	_main
+    86                           	global	??_main
+    87                           	global	?_main
+    88                           
+    89                           ; *************** function _main **************
+                                 *
+    90                           ; Defined at:
+    91                           ;		line 16 in file "C:\Documents and Settings\J
+                                 ayamma\My Documents\PIC\PIC_TEst\main.c"
+    92                           ; Parameters:
+    93                           ;		None
+    94                           ; Auto variables:
+    95                           ;		tempcounter 	       	type: unsigned char 
+    96                           ; Return value:
+    97                           ;		type: void 
+    98                           ;		size: 0
+    99                           ; Registers used:
+   100                           ;		wreg, fsr, status,2, status,0, pclath, cstac
+                                 k
+   101                           ; Tracked objects:
+   102                           ;		On entry : BFF/0
+   103                           ;		On exit  : 0/0
+   104                           ;		Unchanged: 0/0
+   105                           ; Data sizes:
+   106                           ;		Autos:    0
+   107                           ;		Params:   0
+   108                           ;		Temp:     1
+   109                           ;		Total:    1
+   110                           ; This function calls:
+   111                           ;		_init_DigIO
+   112                           ;		_init_timer
+   113                           ;		_init_adc
+   114                           ;		_init_SWTimer
+   115                           ;		_Start_Timer
+   116                           ;		_alarm_on
+   117                           ;		_heater_off
+   118                           ;		_GetTimer_State
+   119                           ;		_Read_Adc_E1
+   120                           ;		_Read_Adc_E0
+   121                           ;		_Stop_Timer
+   122                           ;		_alarm_off
+   123                           ;		_read_pressure_switch
+   124                           ;		_heater_on
+   125                           ; This function is called by:
+   126                           ;		Startup code after reset
+   127                           ; This function uses a non-reentrant model
+   128                           ; 
+   129                           	psect	maintext,class=CODE,delta=2
+   130                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\main.c"
+   131                           	line	16
+   132                           	psect	maintext
+   133                           ;main.c: 8: asm("\tpsect config,class=CONFIG,de
+                                 lta=2"); asm("\tdw ""0x3FFC & 0x3FF7 & 0x3FEF &
+                                  0x3FDF & 0x3FFF & 0x3FFF & 0x3CFF & 0x3BFF & 0
+                                 x37FF");
+   134                           ;main.c: 10: unsigned char WaterSensed_State=2;
+   135                           ;main.c: 11: unsigned char WaterSensed_PrevStat
+                                 e=2;
+   136                           ;main.c: 12: unsigned char Switch_State=0;
+   137                           ;main.c: 13: unsigned char Switch_PrevState=0;
+   138                           ;main.c: 14: unsigned char pressuresw_Flag =0;
+   139                           ;main.c: 15: void main(void)
+   140                           ;main.c: 16: {
+   141                           	
+   142  0037                     _main:	
+   143                           ; Regs used in _main: [wreg+fsr+status,2+status
+                                 ,0+pclath+cstack]
+   144                           	line	18
+   145                           ;main.c: 18: init_DigIO();
+   146  0037  2186               	fcall	_init_DigIO
+   147                           	line	19
+   148                           ;main.c: 19: init_timer();
+   149  0038  2255               	fcall	_init_timer
+   150                           	line	21
+   151                           ;main.c: 21: init_adc();
+   152  0039  2210               	fcall	_init_adc
+   153                           	line	22
+   154                           ;main.c: 22: init_SWTimer();
+   155  003A  2133               	fcall	_init_SWTimer
+   156                           	line	24
+   157                           ;main.c: 24: PEIE = 1;
+   158  003B  1283               	bcf	status, 5	;RP0=0, select bank0
+   159  003C  170B               	bsf	(94/8),(94)&7
+   160                           	line	25
+   161                           ;main.c: 25: GIE = 1;
+   162  003D  178B               	bsf	(95/8),(95)&7
+   163                           	line	26
+   164                           ;main.c: 26: Start_Timer(3,10);
+   165  003E  300A               	movlw	low(0Ah)
+   166                           	
+   167  003F  00A1               	movwf	(?_Start_Timer)
+   168  0040  3000               	movlw	high(0Ah)
+   169  0041  00A2               	movwf	((?_Start_Timer))+1
+   170  0042  3003               	movlw	(03h)
+   171  0043  21A6               	fcall	_Start_Timer
+   172                           	line	29
+   173                           ;main.c: 27: unsigned char tempcounter;
+   174                           ;main.c: 29: alarm_on();
+   175  0044  226C               	fcall	_alarm_on
+   176                           	line	30
+   177                           ;main.c: 30: heater_off();
+   178  0045  2266               	fcall	_heater_off
+   179                           	line	31
+   180                           ;main.c: 31: while (1)
+   181                           	
+   182  0046                     l27:	
+   183                           	line	35
+   184                           ;main.c: 32: {
+   185                           ;main.c: 35: if (GetTimer_State(3) ==3)
+   186  0046  3003               	movlw	(03h)
+   187  0047  20F2               	fcall	_GetTimer_State
+   188  0048  3A03               	xorlw	03h
+   189  0049  1D03               	skipz
+   190  004A  284C               	goto	u1461
+   191  004B  284D               	goto	u1460
+   192  004C                     u1461:
+   193  004C  28EE               	goto	l26
+   194  004D                     u1460:
+   195                           	line	37
+   196                           ;main.c: 36: {
+   197                           ;main.c: 37: Start_Timer(3,10);
+   198  004D  300A               	movlw	low(0Ah)
+   199  004E  1283               	bcf	status, 5	;RP0=0, select bank0
+   200                           	
+   201  004F  00A1               	movwf	(?_Start_Timer)
+   202  0050  3000               	movlw	high(0Ah)
+   203  0051  00A2               	movwf	((?_Start_Timer))+1
+   204  0052  3003               	movlw	(03h)
+   205  0053  21A6               	fcall	_Start_Timer
+   206                           	line	39
+   207                           ;main.c: 39: if(Read_Adc_E1() == 1)
+   208  0054  21F9               	fcall	_Read_Adc_E1
+   209  0055  3A01               	xorlw	01h
+   210  0056  1D03               	skipz
+   211  0057  2859               	goto	u1471
+   212  0058  285A               	goto	u1470
+   213  0059                     u1471:
+   214  0059  28EC               	goto	l30
+   215  005A                     u1470:
+   216                           	line	42
+   217                           ;main.c: 40: {
+   218                           ;main.c: 42: WaterSensed_State = Read_Adc_E0();
+   219  005A  2224               	fcall	_Read_Adc_E0
+   220  005B  1283               	bcf	status, 5	;RP0=0, select bank0
+   221  005C  00A0               	movwf	(??_main+0+0)
+   222                           	
+   223  005D  0820               	movf	(??_main+0+0),w
+   224  005E  00E3               	movwf	(99)
+   225                           	line	63
+   226                           ;main.c: 63: if ((WaterSensed_PrevState == 1 ) 
+                                 && ( WaterSensed_State == 2 ))
+   227                           	
+   228  005F  0862               	movf	(98),w
+   229                           	
+   230  0060  3A01               	xorlw	01h
+   231  0061  1D03               	skipz
+   232  0062  2864               	goto	u1481
+   233  0063  2865               	goto	u1480
+   234  0064                     u1481:
+   235  0064  2878               	goto	l31
+   236  0065                     u1480:
+   237                           	
+   238  0065  0863               	movf	(99),w
+   239                           	
+   240  0066  3A02               	xorlw	02h
+   241  0067  1D03               	skipz
+   242  0068  286A               	goto	u1491
+   243  0069  286B               	goto	u1490
+   244  006A                     u1491:
+   245  006A  2878               	goto	l31
+   246  006B                     u1490:
+   247                           	line	65
+   248                           ;main.c: 64: {
+   249                           ;main.c: 65: Start_Timer(0,5000);
+   250  006B  3088               	movlw	low(01388h)
+   251                           	
+   252  006C  00A1               	movwf	(?_Start_Timer)
+   253  006D  3013               	movlw	high(01388h)
+   254  006E  00A2               	movwf	((?_Start_Timer))+1
+   255  006F  3000               	movlw	(0)
+   256  0070  21A6               	fcall	_Start_Timer
+   257                           	line	66
+   258                           ;main.c: 66: pressuresw_Flag = 0;
+   259  0071  1003               	clrc
+   260  0072  1283               	bcf	status, 5	;RP0=0, select bank0
+   261                           	
+   262  0073  3000               	movlw	0
+   263  0074  1803               	btfsc	status,0
+   264  0075  3001               	movlw	1
+   265  0076  00FB               	movwf	(123)
+   266                           	line	67
+   267                           ;main.c: 67: }
+   268  0077  2883               	goto	l32
+   269                           	line	68
+   270                           	
+   271  0078                     l31:	
+   272                           ;main.c: 68: else if (GetTimer_State(0) ==3)
+   273  0078  3000               	movlw	(0)
+   274  0079  20F2               	fcall	_GetTimer_State
+   275  007A  3A03               	xorlw	03h
+   276  007B  1D03               	skipz
+   277  007C  287E               	goto	u1501
+   278  007D  287F               	goto	u1500
+   279  007E                     u1501:
+   280  007E  2883               	goto	l32
+   281  007F                     u1500:
+   282                           	line	70
+   283                           ;main.c: 69: {
+   284                           ;main.c: 70: alarm_on();
+   285  007F  226C               	fcall	_alarm_on
+   286                           	line	71
+   287                           ;main.c: 71: heater_off();
+   288  0080  2266               	fcall	_heater_off
+   289                           	line	73
+   290                           ;main.c: 73: Stop_Timer(0);
+   291  0081  3000               	movlw	(0)
+   292  0082  224A               	fcall	_Stop_Timer
+   293                           	line	75
+   294                           	
+   295  0083                     l33:	
+   296                           	line	84
+   297                           	
+   298  0083                     l32:	
+   299                           ;main.c: 75: }
+   300                           ;main.c: 84: if ((WaterSensed_PrevState == 2 ) 
+                                 && ( WaterSensed_State == 1 ))
+   301  0083  1283               	bcf	status, 5	;RP0=0, select bank0
+   302                           	
+   303  0084  0862               	movf	(98),w
+   304                           	
+   305  0085  3A02               	xorlw	02h
+   306  0086  1D03               	skipz
+   307  0087  2889               	goto	u1511
+   308  0088  288A               	goto	u1510
+   309  0089                     u1511:
+   310  0089  2897               	goto	l34
+   311  008A                     u1510:
+   312+                          	
+   313+ 008A  0863               	movf	(99),w
+   314                           	
+   315  008B  3A01               	xorlw	01h
+   316  008C  1D03               	skipz
+   317  008D  288F               	goto	u1521
+   318  008E  2890               	goto	u1520
+   319  008F                     u1521:
+   320  008F  2897               	goto	l34
+   321  0090                     u1520:
+   322                           	line	86
+   323                           ;main.c: 85: {
+   324                           ;main.c: 86: Start_Timer(1,5000);
+   325  0090  3088               	movlw	low(01388h)
+   326                           	
+   327  0091  00A1               	movwf	(?_Start_Timer)
+   328  0092  3013               	movlw	high(01388h)
+   329  0093  00A2               	movwf	((?_Start_Timer))+1
+   330  0094  3001               	movlw	(01h)
+   331  0095  21A6               	fcall	_Start_Timer
+   332                           	line	87
+   333                           ;main.c: 87: }
+   334  0096  28A5               	goto	l35
+   335                           	line	88
+   336                           	
+   337  0097                     l34:	
+   338                           ;main.c: 88: else if (GetTimer_State(1) ==3)
+   339  0097  3001               	movlw	(01h)
+   340  0098  20F2               	fcall	_GetTimer_State
+   341  0099  3A03               	xorlw	03h
+   342  009A  1D03               	skipz
+   343  009B  289D               	goto	u1531
+   344  009C  289E               	goto	u1530
+   345  009D                     u1531:
+   346  009D  28A5               	goto	l35
+   347  009E                     u1530:
+   348                           	line	92
+   349                           ;main.c: 89: {
+   350                           ;main.c: 92: alarm_off();
+   351  009E  2260               	fcall	_alarm_off
+   352                           	line	93
+   353                           ;main.c: 93: pressuresw_Flag = 1;
+   354  009F  1283               	bcf	status, 5	;RP0=0, select bank0
+   355                           	
+   356  00A0  01FB               	clrf	(123)
+   357  00A1  1403               	bsf	status,0
+   358  00A2  0DFB               	rlf	(123),f
+   359                           	line	94
+   360                           ;main.c: 94: Stop_Timer(1);
+   361  00A3  3001               	movlw	(01h)
+   362  00A4  224A               	fcall	_Stop_Timer
+   363                           	line	96
+   364                           	
+   365  00A5                     l36:	
+   366                           	line	98
+   367                           	
+   368  00A5                     l35:	
+   369                           ;main.c: 96: }
+   370                           ;main.c: 98: WaterSensed_PrevState =WaterSensed
+                                 _State;
+   371  00A5  1283               	bcf	status, 5	;RP0=0, select bank0
+   372                           	
+   373  00A6  0863               	movf	(99),w
+   374                           	
+   375  00A7  00A0               	movwf	(??_main+0+0)
+   376                           	
+   377  00A8  0820               	movf	(??_main+0+0),w
+   378  00A9  00E2               	movwf	(98)
+   379                           	line	102
+   380                           ;main.c: 102: if (0xFF == WaterSensed_State)
+   381                           	
+   382  00AA  0863               	movf	(99),w
+   383                           	
+   384  00AB  3AFF               	xorlw	0FFh
+   385  00AC  1D03               	skipz
+   386  00AD  28AF               	goto	u1541
+   387  00AE  28B0               	goto	u1540
+   388  00AF                     u1541:
+   389  00AF  28B2               	goto	l37
+   390  00B0                     u1540:
+   391                           	line	104
+   392                           ;main.c: 103: {
+   393                           ;main.c: 104: alarm_on();
+   394  00B0  226C               	fcall	_alarm_on
+   395                           	line	105
+   396                           ;main.c: 105: heater_off();
+   397  00B1  2266               	fcall	_heater_off
+   398                           	line	107
+   399                           	
+   400  00B2                     l37:	
+   401                           	line	112
+   402                           ;main.c: 107: }
+   403                           ;main.c: 112: if (pressuresw_Flag)
+   404  00B2  1283               	bcf	status, 5	;RP0=0, select bank0
+   405                           	
+   406  00B3  08FB               	movf	(123),f
+   407  00B4  1D03               	skipz
+   408  00B5  28B7               	goto	u1550
+   409  00B6  28E6               	goto	l38
+   410  00B7                     u1550:
+   411                           	line	114
+   412                           ;main.c: 113: {
+   413                           ;main.c: 114: Switch_State = read_pressure_swit
+                                 ch();
+   414  00B7  21C3               	fcall	_read_pressure_switch
+   415  00B8  1283               	bcf	status, 5	;RP0=0, select bank0
+   416  00B9  00A0               	movwf	(??_main+0+0)
+   417                           	
+   418  00BA  0820               	movf	(??_main+0+0),w
+   419  00BB  00FC               	movwf	(124)
+   420                           	line	115
+   421                           ;main.c: 115: if ((Switch_PrevState == 0 )&& (S
+                                 witch_State == 1))
+   422                           	
+   423  00BC  08FD               	movf	(125),f
+   424  00BD  1D03               	skipz
+   425  00BE  28C0               	goto	u1561
+   426  00BF  28C1               	goto	u1560
+   427  00C0                     u1561:
+   428  00C0  28CD               	goto	l39
+   429  00C1                     u1560:
+   430                           	
+   431  00C1  087C               	movf	(124),w
+   432                           	
+   433  00C2  3A01               	xorlw	01h
+   434  00C3  1D03               	skipz
+   435  00C4  28C6               	goto	u1571
+   436  00C5  28C7               	goto	u1570
+   437  00C6                     u1571:
+   438+ 00C6  28CD               	goto	l39
+   439  00C7                     u1570:
+   440                           	line	117
+   441                           ;main.c: 116: {
+   442                           ;main.c: 117: Start_Timer(2,2000);
+   443  00C7  30D0               	movlw	low(07D0h)
+   444                           	
+   445  00C8  00A1               	movwf	(?_Start_Timer)
+   446  00C9  3007               	movlw	high(07D0h)
+   447  00CA  00A2               	movwf	((?_Start_Timer))+1
+   448  00CB  3002               	movlw	(02h)
+   449  00CC  21A6               	fcall	_Start_Timer
+   450                           	line	119
+   451                           	
+   452  00CD                     l39:	
+   453                           	line	121
+   454                           ;main.c: 119: }
+   455                           ;main.c: 121: if ((GetTimer_State(2) ==3) && (S
+                                 witch_State == 1))
+   456  00CD  3002               	movlw	(02h)
+   457  00CE  20F2               	fcall	_GetTimer_State
+   458  00CF  3A03               	xorlw	03h
+   459  00D0  1D03               	skipz
+   460  00D1  28D3               	goto	u1581
+   461  00D2  28D4               	goto	u1580
+   462  00D3                     u1581:
+   463  00D3  28DD               	goto	l40
+   464  00D4                     u1580:
+   465  00D4  1283               	bcf	status, 5	;RP0=0, select bank0
+   466                           	
+   467  00D5  087C               	movf	(124),w
+   468                           	
+   469  00D6  3A01               	xorlw	01h
+   470  00D7  1D03               	skipz
+   471  00D8  28DA               	goto	u1591
+   472  00D9  28DB               	goto	u1590
+   473  00DA                     u1591:
+   474  00DA  28DD               	goto	l40
+   475  00DB                     u1590:
+   476                           	line	123
+   477                           ;main.c: 122: {
+   478                           ;main.c: 123: heater_on();
+   479  00DB  226F               	fcall	_heater_on
+   480                           	line	124
+   481                           ;main.c: 124: alarm_off();
+   482  00DC  2260               	fcall	_alarm_off
+   483                           	line	125
+   484                           	
+   485  00DD                     l40:	
+   486                           	line	128
+   487                           ;main.c: 125: }
+   488                           ;main.c: 128: if(Switch_State == 0)
+   489  00DD  1283               	bcf	status, 5	;RP0=0, select bank0
+   490                           	
+   491  00DE  08FC               	movf	(124),f
+   492  00DF  1D03               	skipz
+   493  00E0  28E2               	goto	u1601
+   494  00E1  28E3               	goto	u1600
+   495  00E2                     u1601:
+   496  00E2  28E6               	goto	l38
+   497  00E3                     u1600:
+   498                           	line	130
+   499                           ;main.c: 129: {
+   500                           ;main.c: 130: Stop_Timer(2);
+   501  00E3  3002               	movlw	(02h)
+   502  00E4  224A               	fcall	_Stop_Timer
+   503                           	line	131
+   504                           ;main.c: 131: heater_off();
+   505  00E5  2266               	fcall	_heater_off
+   506                           	line	133
+   507                           	
+   508  00E6                     l41:	
+   509                           	line	134
+   510                           	
+   511  00E6                     l38:	
+   512                           	line	139
+   513                           ;main.c: 133: }
+   514                           ;main.c: 134: }
+   515                           ;main.c: 139: Switch_PrevState=Switch_State;
+   516  00E6  1283               	bcf	status, 5	;RP0=0, select bank0
+   517                           	
+   518  00E7  087C               	movf	(124),w
+   519                           	
+   520  00E8  00A0               	movwf	(??_main+0+0)
+   521                           	
+   522  00E9  0820               	movf	(??_main+0+0),w
+   523  00EA  00FD               	movwf	(125)
+   524                           	line	140
+   525                           ;main.c: 140: }
+   526  00EB  28EE               	goto	l26
+   527                           	line	142
+   528                           	
+   529  00EC                     l30:	
+   530                           	line	143
+   531                           ;main.c: 142: else {
+   532                           ;main.c: 143: alarm_on();
+   533  00EC  226C               	fcall	_alarm_on
+   534                           	line	144
+   535                           ;main.c: 144: heater_off();
+   536  00ED  2266               	fcall	_heater_off
+   537                           	line	145
+   538                           	
+   539  00EE                     l42:	
+   540                           	line	150
+   541                           	
+   542  00EE                     l29:	
+   543                           	line	151
+   544                           	
+   545  00EE                     l26:	
+   546                           	line	31
+   547  00EE  2846               	goto	l27
+   548                           	global	start
+   549  00EF  280F               	ljmp	start
+   550                           ; =============== function _main ends =========
+                                 ======
+   551                           
+   552                           GLOBAL __end_of_main
+   553  00F0                     	__end_of_main:
+   554                           	FNSIZE	_main,1,0
+   555                           	psect	maintext
+   556                           	line	152
+   557                           	signat	_main,88
+   558                           	global	_Read_Adc_E0
+   559                           	global	??_Read_Adc_E0
+   560                           	global	?_Read_Adc_E0
+   561                           
+   562                           ; *************** function _Read_Adc_E0 *******
+                                 ********
+   563                           ; Defined at:
+   564                           ;		line 32 in file "C:\Documents and Settings\J
+                                 ayamma\My Documents\PIC\PIC_TEst\Adcc.c"
+   565                           ; Parameters:
+   566                           ;		None
+   567                           ; Auto variables:
+   568                           ;		temp        	       	type: unsigned char 
+   569                           ;		ret_val     	       	type: unsigned char 
+   570                           ; Return value:
+   571                           ;		type: unsigned char 
+   572                           ;		size: 1
+   573                           ; Registers used:
+   574                           ;		wreg, status,2, status,0, pclath, cstack
+   575                           ; Tracked objects:
+   576                           ;		On entry : 0/0
+   577                           ;		On exit  : 0/0
+   578                           ;		Unchanged: 0/0
+   579                           ; Data sizes:
+   580                           ;		Autos:    2
+   581                           ;		Params:   0
+   582                           ;		Temp:     0
+   583                           ;		Total:    2
+   584                           ; This function calls:
+   585                           ;		_Read_Adc
+   586                           ; This function is called by:
+   587                           ;		_main
+   588                           ; This function uses a non-reentrant model
+   589                           ; 
+   590                           	psect	text152,local,class=CODE,delta=2
+   591                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\Adcc.c"
+   592                           	line	32
+   593                           ;Adcc.c: 30: unsigned char Read_Adc_E0(void)
+   594                           ;Adcc.c: 32: {
+   595                           	
+   596  0224                     _Read_Adc_E0:	
+   597                           ; Regs used in _Read_Adc_E0: [wreg+status,2+sta
+                                 tus,0+pclath+cstack]
+   598                           	line	34
+   599                           ;Adcc.c: 33: unsigned char ret_val, temp;
+   600                           ;Adcc.c: 34: temp=Read_Adc(0);
+   601  0224  3000               	movlw	(0)
+   602  0225  2166               	fcall	_Read_Adc
+   603  0226  1283               	bcf	status, 5	;RP0=0, select bank0
+   604                           	
+   605  0227  00A1               	movwf	(_Read_Adc_E0_temp)
+   606                           	line	36
+   607                           ;Adcc.c: 36: if(temp >= 0x4C)
+   608  0228  304C               	movlw	(04Ch)
+   609                           	
+   610  0229  0221               	subwf	(_Read_Adc_E0_temp),w
+   611  022A  1C03               	skipc
+   612  022B  2A2D               	goto	u1611
+   613  022C  2A2E               	goto	u1610
+   614  022D                     u1611:
+   615  022D  2A32               	goto	l7
+   616  022E                     u1610:
+   617                           	line	38
+   618                           ;Adcc.c: 37: {
+   619                           ;Adcc.c: 38: ret_val = 1;
+   620                           	
+   621  022E  01A2               	clrf	(_Read_Adc_E0_ret_val)
+   622  022F  1403               	bsf	status,0
+   623  0230  0DA2               	rlf	(_Read_Adc_E0_ret_val),f
+   624                           	line	39
+   625                           ;Adcc.c: 39: }
+   626  0231  2A34               	goto	l8
+   627                           	line	40
+   628                           	
+   629  0232                     l7:	
+   630                           	line	42
+   631                           ;Adcc.c: 40: else
+   632                           ;Adcc.c: 41: {
+   633                           ;Adcc.c: 42: ret_val = 2;
+   634  0232  3002               	movlw	(02h)
+   635                           	
+   636  0233  00A2               	movwf	(_Read_Adc_E0_ret_val)
+   637                           	line	43
+   638                           	
+   639  0234                     l8:	
+   640                           	line	46
+   641                           ;Adcc.c: 43: }
+   642                           ;Adcc.c: 46: return ret_val;
+   643                           	
+   644  0234  0822               	movf	(_Read_Adc_E0_ret_val),w
+   645  0235  1383               	bcf	status, 7	;select IRP bank0
+   646                           	
+   647  0236  2A37               	goto	l6
+   648                           	line	47
+   649                           ;Adcc.c: 47: }
+   650  0237                     l6:	
+   651  0237  0008               	return
+   652                           ; =============== function _Read_Adc_E0 ends ==
+                                 =============
+   653                           
+   654                           GLOBAL __end_of_Read_Adc_E0
+   655  0238                     	__end_of_Read_Adc_E0:
+   656                           	FNSIZE	_Read_Adc_E0,2,0
+   657                           	signat	_Read_Adc_E0,89
+   658                           	global	_Read_Adc_E1
+   659                           	global	??_Read_Adc_E1
+   660                           	global	?_Read_Adc_E1
+   661                           
+   662                           ; *************** function _Read_Adc_E1 *******
+                                 ********
+   663                           ; Defined at:
+   664                           ;		line 50 in file "C:\Documents and Settings\J
+                                 ayamma\My Documents\PIC\PIC_TEst\Adcc.c"
+   665                           ; Parameters:
+   666                           ;		None
+   667                           ; Auto variables:
+   668                           ;		temp        	       	type: unsigned char 
+   669                           ;		ret_val     	       	type: unsigned char 
+   670                           ; Return value:
+   671                           ;		type: unsigned char 
+   672                           ;		size: 1
+   673                           ; Registers used:
+   674                           ;		wreg, status,2, status,0, pclath, cstack
+   675                           ; Tracked objects:
+   676                           ;		On entry : 0/0
+   677                           ;		On exit  : 0/0
+   678                           ;		Unchanged: 0/0
+   679                           ; Data sizes:
+   680                           ;		Autos:    2
+   681                           ;		Params:   0
+   682                           ;		Temp:     0
+   683                           ;		Total:    2
+   684                           ; This function calls:
+   685                           ;		_Read_Adc
+   686                           ; This function is called by:
+   687                           ;		_main
+   688                           ; This function uses a non-reentrant model
+   689                           ; 
+   690                           	psect	text153,local,class=CODE,delta=2
+   691                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\Adcc.c"
+   692                           	line	50
+   693                           ;Adcc.c: 49: unsigned char Read_Adc_E1(void)
+   694                           ;Adcc.c: 50: {
+   695                           	
+   696  01F9                     _Read_Adc_E1:	
+   697                           ; Regs used in _Read_Adc_E1: [wreg+status,2+sta
+                                 tus,0+pclath+cstack]
+   698                           	line	52
+   699                           ;Adcc.c: 51: unsigned char ret_val, temp;
+   700                           ;Adcc.c: 52: temp=Read_Adc(1);
+   701  01F9  3001               	movlw	(01h)
+   702  01FA  2166               	fcall	_Read_Adc
+   703  01FB  1283               	bcf	status, 5	;RP0=0, select bank0
+   704                           	
+   705  01FC  00A1               	movwf	(_Read_Adc_E1_temp)
+   706                           	line	54
+   707                           ;Adcc.c: 54: if( (temp >= 0x38))
+   708  01FD  3038               	movlw	(038h)
+   709                           	
+   710  01FE  0221               	subwf	(_Read_Adc_E1_temp),w
+   711  01FF  1C03               	skipc
+   712  0200  2A02               	goto	u1621
+   713  0201  2A03               	goto	u1620
+   714  0202                     u1621:
+   715  0202  2A07               	goto	l10
+   716  0203                     u1620:
+   717                           	line	56
+   718                           ;Adcc.c: 55: {
+   719                           ;Adcc.c: 56: ret_val = 1;
+   720                           	
+   721  0203  01A2               	clrf	(_Read_Adc_E1_ret_val)
+   722  0204  1403               	bsf	status,0
+   723  0205  0DA2               	rlf	(_Read_Adc_E1_ret_val),f
+   724                           	line	57
+   725                           ;Adcc.c: 57: }
+   726  0206  2A0C               	goto	l11
+   727                           	line	58
+   728                           	
+   729  0207                     l10:	
+   730                           	line	60
+   731                           ;Adcc.c: 58: else
+   732                           ;Adcc.c: 59: {
+   733                           ;Adcc.c: 60: ret_val = 0;
+   734  0207  1003               	clrc
+   735                           	
+   736  0208  3000               	movlw	0
+   737  0209  1803               	btfsc	status,0
+   738  020A  3001               	movlw	1
+   739  020B  00A2               	movwf	(_Read_Adc_E1_ret_val)
+   740                           	line	61
+   741                           	
+   742  020C                     l11:	
+   743                           	line	63
+   744                           ;Adcc.c: 61: }
+   745                           ;Adcc.c: 63: return ret_val;
+   746                           	
+   747  020C  0822               	movf	(_Read_Adc_E1_ret_val),w
+   748  020D  1383               	bcf	status, 7	;select IRP bank0
+   749                           	
+   750  020E  2A0F               	goto	l9
+   751                           	line	65
+   752                           ;Adcc.c: 65: }
+   753  020F                     l9:	
+   754  020F  0008               	return
+   755                           ; =============== function _Read_Adc_E1 ends ==
+                                 =============
+   756                           
+   757                           GLOBAL __end_of_Read_Adc_E1
+   758  0210                     	__end_of_Read_Adc_E1:
+   759                           	FNSIZE	_Read_Adc_E1,2,0
+   760                           	signat	_Read_Adc_E1,89
+   761                           	global	_GetTimer_State
+   762                           	global	??_GetTimer_State
+   763                           	global	?_GetTimer_State
+   764                           
+   765                           ; *************** function _GetTimer_State ****
+                                 ***********
+   766                           ; Defined at:
+   767                           ;		line 30 in file "C:\Documents and Settings\J
+                                 ayamma\My Documents\PIC\PIC_TEst\SW_TIMER.c"
+   768                           ; Parameters:
+   769                           ;		TimerID     	reg:   wr	type: unsigned char 
+   770                           ; Auto variables:
+   771                           ;		TimerID     	       	type: unsigned char 
+   772                           ; Return value:
+   773                           ;		type: unsigned char 
+   774                           ;		size: 1
+   775                           ; Registers used:
+   776                           ;		wreg, fsr, status,2, status,0
+   777                           ; Tracked objects:
+   778                           ;		On entry : 0/0
+   779                           ;		On exit  : 0/0
+   780                           ;		Unchanged: 0/0
+   781                           ; Data sizes:
+   782                           ;		Autos:    1
+   783                           ;		Params:   0
+   784                           ;		Temp:     8
+   785                           ;		Total:    9
+   786                           ; This function calls:
+   787                           ;		Nothing
+   788                           ; This function is called by:
+   789                           ;		_main
+   790                           ; This function uses a non-reentrant model
+   791                           ; 
+   792                           	psect	text154,local,class=CODE,delta=2
+   793                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\SW_TIMER.c"
+   794                           	line	30
+   795                           ;SW_TIMER.c: 29: unsigned char GetTimer_State(u
+                                 nsigned char TimerID)
+   796                           ;SW_TIMER.c: 30: {
+   797                           	
+   798  00F2                     _GetTimer_State:	
+   799                           ; Regs used in _GetTimer_State: [wreg+fsr+statu
+                                 s,2+status,0]
+   800                           ;_GetTimer_State_TimerID stored from wreg
+   801  00F2  1283               	bcf	status, 5	;RP0=0, select bank0
+   802                           	
+   803  00F3  00A1               	movwf	(_GetTimer_State_TimerID)
+   804                           	line	31
+   805                           ;SW_TIMER.c: 31: if ( TimerState[TimerID] == 1 
+                                 )
+   806                           	
+   807  00F4  0821               	movf	(_GetTimer_State_TimerID),w
+   808  00F5  1383               	bcf	status, 7	;select IRP bank0
+   809                           	
+   810  00F6  3E64               	addlw	100&0ffh
+   811  00F7  0084               	movwf	fsr
+   812                           	
+   813  00F8  0800               	movf	indf,w
+   814                           	
+   815  00F9  3A01               	xorlw	01h
+   816  00FA  1D03               	skipz
+   817  00FB  28FD               	goto	u1631
+   818  00FC  28FE               	goto	u1630
+   819  00FD                     u1631:
+   820  00FD  292D               	goto	l49
+   821  00FE                     u1630:
+   822                           	line	33
+   823                           ;SW_TIMER.c: 32: {
+   824                           ;SW_TIMER.c: 33: if( (Ref1ms_counter -TimerStar
+                                 t[TimerID]) > TimerTimeOutVal[TimerID] )
+   825                           	
+   826  00FE  0821               	movf	(_GetTimer_State_TimerID),w
+   827                           	
+   828  00FF  00A2               	movwf	(??_GetTimer_State+1+0)
+   829  0100  0722               	addwf	(??_GetTimer_State+1+0),w
+   830  0101  3E71               	addlw	113&0ffh
+   831  0102  0084               	movwf	fsr
+   832  0103  0800               	movf	indf,w
+   833  0104  00A3               	movwf	(??_GetTimer_State+2+0)
+   834  0105  3001               	movlw	1
+   835  0106  0784               	addwf	fsr,f
+   836  0107  0800               	movf	indf,w
+   837  0108  00A4               	movwf	(??_GetTimer_State+2+0+1)
+   838                           	
+   839  0109  0823               	movf	0+(??_GetTimer_State+2+0),w
+   840  010A  0279               	subwf	(121),w	;volatile
+   841  010B  00A5               	movwf	(??_GetTimer_State+4+0)
+   842  010C  0824               	movf	1+(??_GetTimer_State+2+0),w
+   843  010D  1C03               	skipc
+   844  010E  0A24               	incf	1+(??_GetTimer_State+2+0),w
+   845  010F  027A               	subwf	(121+1),w	;volatile
+   846  0110  00A6               	movwf	1+(??_GetTimer_State+4+0)
+   847                           	
+   848  0111  0821               	movf	(_GetTimer_State_TimerID),w
+   849                           	
+   850  0112  00A7               	movwf	(??_GetTimer_State+6+0)
+   851  0113  0727               	addwf	(??_GetTimer_State+6+0),w
+   852  0114  3E68               	addlw	104&0ffh
+   853  0115  0084               	movwf	fsr
+   854  0116  0800               	movf	indf,w
+   855  0117  00A8               	movwf	(??_GetTimer_State+7+0)
+   856  0118  3001               	movlw	1
+   857  0119  0784               	addwf	fsr,f
+   858  011A  0800               	movf	indf,w
+   859  011B  00A9               	movwf	(??_GetTimer_State+7+0+1)
+   860  011C  0826               	movf	1+(??_GetTimer_State+4+0),w
+   861  011D  0229               	subwf	1+(??_GetTimer_State+7+0),w
+   862  011E  1D03               	skipz
+   863  011F  2922               	goto	u1645
+   864  0120  0825               	movf	0+(??_GetTimer_State+4+0),w
+   865  0121  0228               	subwf	0+(??_GetTimer_State+7+0),w
+   866  0122                     u1645:
+   867  0122  1803               	skipnc
+   868  0123  2925               	goto	u1641
+   869  0124  2926               	goto	u1640
+   870  0125                     u1641:
+   871  0125  292D               	goto	l49
+   872  0126                     u1640:
+   873                           	line	34
+   874                           ;SW_TIMER.c: 34: TimerState[TimerID] =3;
+   875  0126  3003               	movlw	(03h)
+   876  0127  00A2               	movwf	(??_GetTimer_State+1+0)
+   877                           	
+   878  0128  0821               	movf	(_GetTimer_State_TimerID),w
+   879                           	
+   880  0129  3E64               	addlw	100&0ffh
+   881  012A  0084               	movwf	fsr
+   882                           	
+   883  012B  0822               	movf	(??_GetTimer_State+1+0),w
+   884  012C  0080               	movwf	indf
+   885                           	
+   886  012D                     l50:	
+   887                           	line	35
+   888                           	
+   889  012D                     l49:	
+   890                           	line	36
+   891                           ;SW_TIMER.c: 35: }
+   892                           ;SW_TIMER.c: 36: return TimerState[TimerID];
+   893                           	
+   894  012D  0821               	movf	(_GetTimer_State_TimerID),w
+   895                           	
+   896  012E  3E64               	addlw	100&0ffh
+   897  012F  0084               	movwf	fsr
+   898                           	
+   899  0130  0800               	movf	indf,w
+   900                           	
+   901  0131  2932               	goto	l48
+   902                           	line	37
+   903                           ;SW_TIMER.c: 37: }
+   904  0132                     l48:	
+   905  0132  0008               	return
+   906                           ; =============== function _GetTimer_State ends
+                                  ===============
+   907                           
+   908                           GLOBAL __end_of_GetTimer_State
+   909  0133                     	__end_of_GetTimer_State:
+   910                           	FNSIZE	_GetTimer_State,9,0
+   911                           	signat	_GetTimer_State,4217
+   912                           	global	_Stop_Timer
+   913                           	global	??_Stop_Timer
+   914                           	global	?_Stop_Timer
+   915                           
+   916                           ; *************** function _Stop_Timer ********
+                                 *******
+   917                           ; Defined at:
+   918                           ;		line 40 in file "C:\Documents and Settings\J
+                                 ayamma\My Documents\PIC\PIC_TEst\SW_TIMER.c"
+   919                           ; Parameters:
+   920                           ;		TimerID     	reg:   wr	type: unsigned char 
+   921                           ; Auto variables:
+   922                           ;		TimerID     	       	type: unsigned char 
+   923                           ; Return value:
+   924                           ;		type: void 
+   925                           ;		size: 0
+   926                           ; Registers used:
+   927                           ;		wreg, fsr
+   928                           ; Tracked objects:
+   929                           ;		On entry : 0/0
+   930                           ;		On exit  : 0/0
+   931                           ;		Unchanged: 0/0
+   932                           ; Data sizes:
+   933                           ;		Autos:    1
+   934                           ;		Params:   0
+   935                           ;		Temp:     1
+   936                           ;		Total:    2
+   937                           ; This function calls:
+   938                           ;		Nothing
+   939                           ; This function is called by:
+   940                           ;		_main
+   941                           ; This function uses a non-reentrant model
+   942                           ; 
+   943                           	psect	text155,local,class=CODE,delta=2
+   944                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\SW_TIMER.c"
+   945                           	line	40
+   946                           ;SW_TIMER.c: 39: void Stop_Timer(unsigned char 
+                                 TimerID)
+   947                           ;SW_TIMER.c: 40: {
+   948                           	
+   949  024A                     _Stop_Timer:	
+   950                           ; Regs used in _Stop_Timer: [wregfsr]
+   951                           ;_Stop_Timer_TimerID stored from wreg
+   952  024A  1283               	bcf	status, 5	;RP0=0, select bank0
+   953                           	
+   954  024B  00A1               	movwf	(_Stop_Timer_TimerID)
+   955                           	line	41
+   956                           ;SW_TIMER.c: 41: TimerState[TimerID] =2;
+   957  024C  3002               	movlw	(02h)
+   958  024D  00A2               	movwf	(??_Stop_Timer+1+0)
+   959                           	
+   960  024E  0821               	movf	(_Stop_Timer_TimerID),w
+   961  024F  1383               	bcf	status, 7	;select IRP bank0
+   962                           	
+   963  0250  3E64               	addlw	100&0ffh
+   964  0251  0084               	movwf	fsr
+   965                           	
+   966  0252  0822               	movf	(??_Stop_Timer+1+0),w
+   967  0253  0080               	movwf	indf
+   968                           	line	42
+   969                           ;SW_TIMER.c: 42: }
+   970  0254                     l51:	
+   971  0254  0008               	return
+   972                           ; =============== function _Stop_Timer ends ===
+                                 ============
+   973                           
+   974                           GLOBAL __end_of_Stop_Timer
+   975  0255                     	__end_of_Stop_Timer:
+   976                           	FNSIZE	_Stop_Timer,2,0
+   977                           	signat	_Stop_Timer,4216
+   978                           	global	_heater_on
+   979                           	global	??_heater_on
+   980                           	global	?_heater_on
+   981                           
+   982                           ; *************** function _heater_on *********
+                                 ******
+   983                           ; Defined at:
+   984                           ;		line 53 in file "C:\Documents and Settings\J
+                                 ayamma\My Documents\PIC\PIC_TEst\DigIO.c"
+   985                           ; Parameters:
+   986                           ;		None
+   987                           ; Auto variables:
+   988                           ;		None
+   989                           ; Return value:
+   990                           ;		type: void 
+   991                           ;		size: 0
+   992                           ; Registers used:
+   993                           ;		None
+   994                           ; Tracked objects:
+   995                           ;		On entry : 100/0
+   996                           ;		On exit  : 0/0
+   997                           ;		Unchanged: 0/0
+   998                           ; Data sizes:
+   999                           ;		Autos:    0
+  1000                           ;		Params:   0
+  1001                           ;		Temp:     0
+  1002                           ;		Total:    0
+  1003                           ; This function calls:
+  1004                           ;		Nothing
+  1005                           ; This function is called by:
+  1006                           ;		_main
+  1007                           ; This function uses a non-reentrant model
+  1008                           ; 
+  1009                           	psect	text156,local,class=CODE,delta=2
+  1010                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\DigIO.c"
+  1011                           	line	53
+  1012                           ;DigIO.c: 52: void heater_on(void)
+  1013                           ;DigIO.c: 53: {
+  1014                           	
+  1015  026F                     _heater_on:	
+  1016                           ; Regs used in _heater_on: []
+  1017                           	line	54
+  1018                           ;DigIO.c: 54: PORTC |= 0b00100000;
+  1019                           	
+  1020  026F  1687               	bsf	(7)+(5/8),(5)&7	;volatile
+  1021                           	line	55
+  1022                           ;DigIO.c: 55: }
+  1023  0270                     l23:	
+  1024  0270  0008               	return
+  1025                           ; =============== function _heater_on ends ====
+                                 ===========
+  1026                           
+  1027                           GLOBAL __end_of_heater_on
+  1028  0271                     	__end_of_heater_on:
+  1029                           	FNSIZE	_heater_on,0,0
+  1030                           	signat	_heater_on,88
+  1031                           	global	_read_pressure_switch
+  1032                           	global	??_read_pressure_switch
+  1033                           	global	?_read_pressure_switch
+  1034                           
+  1035                           ; *************** function _read_pressure_switc
+                                 h ***************
+  1036                           ; Defined at:
+  1037                           ;		line 24 in file "C:\Documents and Settings\J
+                                 ayamma\My Documents\PIC\PIC_TEst\DigIO.c"
+  1038                           ; Parameters:
+  1039                           ;		None
+  1040                           ; Auto variables:
+  1041                           ;		ret_val     	       	type: unsigned char 
+  1042                           ; Return value:
+  1043                           ;		type: unsigned char 
+  1044                           ;		size: 1
+  1045                           ; Registers used:
+  1046                           ;		wreg, status,2, status,0
+  1047                           ; Tracked objects:
+  1048                           ;		On entry : 100/0
+  1049                           ;		On exit  : 0/0
+  1050                           ;		Unchanged: 0/0
+  1051                           ; Data sizes:
+  1052                           ;		Autos:    1
+  1053                           ;		Params:   0
+  1054                           ;		Temp:     1
+  1055                           ;		Total:    2
+  1056                           ; This function calls:
+  1057                           ;		Nothing
+  1058                           ; This function is called by:
+  1059                           ;		_main
+  1060                           ; This function uses a non-reentrant model
+  1061                           ; 
+  1062                           	psect	text157,local,class=CODE,delta=2
+  1063                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\DigIO.c"
+  1064                           	line	24
+  1065                           ;DigIO.c: 23: unsigned char read_pressure_switc
+                                 h(void)
+  1066                           ;DigIO.c: 24: {
+  1067                           	
+  1068  01C3                     _read_pressure_switch:	
+  1069                           ; Regs used in _read_pressure_switch: [wreg+sta
+                                 tus,2+status,0]
+  1070                           	line	25
+  1071                           ;DigIO.c: 25: unsigned char ret_val=0;
+  1072  01C3  1003               	clrc
+  1073                           	
+  1074  01C4  3000               	movlw	0
+  1075  01C5  1803               	btfsc	status,0
+  1076  01C6  3001               	movlw	1
+  1077  01C7  00A1               	movwf	(_read_pressure_switch_ret_val)
+  1078                           	line	26
+  1079                           ;DigIO.c: 26: ret_val = PORTA;
+  1080                           	
+  1081  01C8  0805               	movf	(5),w	;volatile
+  1082                           	
+  1083                           	
+  1084  01C9  00A1               	movwf	(_read_pressure_switch_ret_val)
+  1085                           	line	28
+  1086                           ;DigIO.c: 28: ret_val &=0b00100000;
+  1087  01CA  3020               	movlw	(020h)
+  1088  01CB  00A2               	movwf	(??_read_pressure_switch+1+0)
+  1089                           	
+  1090  01CC  0822               	movf	(??_read_pressure_switch+1+0),w
+  1091  01CD  05A1               	andwf	(_read_pressure_switch_ret_val),f
+  1092                           	line	29
+  1093                           ;DigIO.c: 29: if(ret_val)
+  1094                           	
+  1095  01CE  08A1               	movf	(_read_pressure_switch_ret_val),f
+  1096  01CF  1D03               	skipz
+  1097  01D0  29D2               	goto	u1650
+  1098  01D1  29D8               	goto	l19
+  1099  01D2                     u1650:
+  1100                           	line	31
+  1101                           ;DigIO.c: 30: {
+  1102                           ;DigIO.c: 31: ret_val = 0;
+  1103  01D2  1003               	clrc
+  1104                           	
+  1105  01D3  3000               	movlw	0
+  1106  01D4  1803               	btfsc	status,0
+  1107  01D5  3001               	movlw	1
+  1108  01D6  00A1               	movwf	(_read_pressure_switch_ret_val)
+  1109                           	line	32
+  1110                           ;DigIO.c: 32: }
+  1111  01D7  29DB               	goto	l20
+  1112                           	line	33
+  1113                           	
+  1114  01D8                     l19:	
+  1115                           	line	35
+  1116                           ;DigIO.c: 33: else
+  1117                           ;DigIO.c: 34: {
+  1118                           ;DigIO.c: 35: ret_val = 1;
+  1119                           	
+  1120  01D8  01A1               	clrf	(_read_pressure_switch_ret_val)
+  1121  01D9  1403               	bsf	status,0
+  1122  01DA  0DA1               	rlf	(_read_pressure_switch_ret_val),f
+  1123                           	line	36
+  1124                           	
+  1125  01DB                     l20:	
+  1126                           	line	38
+  1127                           ;DigIO.c: 36: }
+  1128                           ;DigIO.c: 38: return ret_val;
+  1129                           	
+  1130  01DB  0821               	movf	(_read_pressure_switch_ret_val),w
+  1131  01DC  1383               	bcf	status, 7	;select IRP bank0
+  1132                           	
+  1133  01DD  29DE               	goto	l18
+  1134                           	line	39
+  1135                           ;DigIO.c: 39: }
+  1136  01DE                     l18:	
+  1137  01DE  0008               	return
+  1138                           ; =============== function _read_pressure_switc
+                                 h ends ===============
+  1139                           
+  1140                           GLOBAL __end_of_read_pressure_switch
+  1141  01DF                     	__end_of_read_pressure_switch:
+  1142                           	FNSIZE	_read_pressure_switch,2,0
+  1143                           	signat	_read_pressure_switch,89
+  1144                           	global	_alarm_off
+  1145                           	global	??_alarm_off
+  1146                           	global	?_alarm_off
+  1147                           
+  1148                           ; *************** function _alarm_off *********
+                                 ******
+  1149                           ; Defined at:
+  1150                           ;		line 48 in file "C:\Documents and Settings\J
+                                 ayamma\My Documents\PIC\PIC_TEst\DigIO.c"
+  1151                           ; Parameters:
+  1152                           ;		None
+  1153                           ; Auto variables:
+  1154                           ;		None
+  1155                           ; Return value:
+  1156                           ;		type: void 
+  1157                           ;		size: 0
+  1158                           ; Registers used:
+  1159                           ;		wreg, status,2, status,0
+  1160                           ; Tracked objects:
+  1161                           ;		On entry : 0/0
+  1162                           ;		On exit  : 0/0
+  1163                           ;		Unchanged: 0/0
+  1164                           ; Data sizes:
+  1165                           ;		Autos:    0
+  1166                           ;		Params:   0
+  1167                           ;		Temp:     1
+  1168                           ;		Total:    1
+  1169                           ; This function calls:
+  1170                           ;		Nothing
+  1171                           ; This function is called by:
+  1172                           ;		_main
+  1173                           ; This function uses a non-reentrant model
+  1174                           ; 
+  1175                           	psect	text158,local,class=CODE,delta=2
+  1176                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\DigIO.c"
+  1177                           	line	48
+  1178                           ;DigIO.c: 47: void alarm_off(void)
+  1179                           ;DigIO.c: 48: {
+  1180                           	
+  1181  0260                     _alarm_off:	
+  1182                           ; Regs used in _alarm_off: [wreg+status,2+statu
+                                 s,0]
+  1183                           	line	49
+  1184                           ;DigIO.c: 49: PORTA &= 0b11101111;
+  1185  0260  30EF               	movlw	(0EFh)
+  1186  0261  1283               	bcf	status, 5	;RP0=0, select bank0
+  1187  0262  00A1               	movwf	(??_alarm_off+0+0)
+  1188                           	
+  1189  0263  0821               	movf	(??_alarm_off+0+0),w
+  1190  0264  0585               	andwf	(5),f	;volatile
+  1191                           	line	50
+  1192                           ;DigIO.c: 50: }
+  1193  0265                     l22:	
+  1194  0265  0008               	return
+  1195                           ; =============== function _alarm_off ends ====
+                                 ===========
+  1196                           
+  1197                           GLOBAL __end_of_alarm_off
+  1198  0266                     	__end_of_alarm_off:
+  1199                           	FNSIZE	_alarm_off,1,0
+  1200                           	signat	_alarm_off,88
+  1201                           	global	_init_adc
+  1202                           	global	??_init_adc
+  1203                           	global	?_init_adc
+  1204                           
+  1205                           ; *************** function _init_adc **********
+                                 *****
+  1206                           ; Defined at:
+  1207                           ;		line 5 in file "C:\Documents and Settings\Ja
+                                 yamma\My Documents\PIC\PIC_TEst\Adcc.c"
+  1208                           ; Parameters:
+  1209                           ;		None
+  1210                           ; Auto variables:
+  1211                           ;		None
+  1212                           ; Return value:
+  1213                           ;		type: void 
+  1214                           ;		size: 0
+  1215                           ; Registers used:
+  1216                           ;		wreg, status,2, status,0
+  1217                           ; Tracked objects:
+  1218                           ;		On entry : 0/0
+  1219                           ;		On exit  : 0/0
+  1220                           ;		Unchanged: 0/0
+  1221                           ; Data sizes:
+  1222                           ;		Autos:    0
+  1223                           ;		Params:   0
+  1224                           ;		Temp:     1
+  1225                           ;		Total:    1
+  1226                           ; This function calls:
+  1227                           ;		Nothing
+  1228                           ; This function is called by:
+  1229                           ;		_main
+  1230                           ; This function uses a non-reentrant model
+  1231                           ; 
+  1232                           	psect	text159,local,class=CODE,delta=2
+  1233                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\Adcc.c"
+  1234                           	line	5
+  1235                           ;Adcc.c: 4: void init_adc(void)
+  1236                           ;Adcc.c: 5: {
+  1237                           	
+  1238  0210                     _init_adc:	
+  1239                           ; Regs used in _init_adc: [wreg+status,2+status
+                                 ,0]
+  1240                           	line	6
+  1241                           ;Adcc.c: 6: TRISA |= 0x03;
+  1242  0210  3003               	movlw	(03h)
+  1243  0211  1283               	bcf	status, 5	;RP0=0, select bank0
+  1244  0212  00A1               	movwf	(??_init_adc+0+0)
+  1245  0213  1683               	bsf	status, 5	;RP0=1, select bank1
+  1246                           	
+  1247  0214  1283               	bcf	status, 5	;RP0=0, select bank0
+  1248  0215  0821               	movf	(??_init_adc+0+0),w
+  1249  0216  1683               	bsf	status, 5	;RP0=1, select bank1
+  1250  0217  0485               	iorwf	(133)^080h,f	;volatile
+  1251                           	line	7
+  1252                           ;Adcc.c: 7: CMCON0 = 7;
+  1253  0218  3007               	movlw	(07h)
+  1254  0219  1283               	bcf	status, 5	;RP0=0, select bank0
+  1255                           	
+  1256  021A  0099               	movwf	(25)	;volatile
+  1257                           	line	8
+  1258                           ;Adcc.c: 8: ANSEL = (0x03);
+  1259  021B  3003               	movlw	(03h)
+  1260  021C  1683               	bsf	status, 5	;RP0=1, select bank1
+  1261                           	
+  1262  021D  0091               	movwf	(145)^080h
+  1263                           	line	9
+  1264                           ;Adcc.c: 9: ADCON1 = 0x10;
+  1265  021E  3010               	movlw	(010h)
+  1266                           	
+  1267  021F  009F               	movwf	(159)^080h
+  1268                           	line	11
+  1269                           ;Adcc.c: 11: ADCON0 = 0x01;
+  1270  0220  3001               	movlw	(01h)
+  1271  0221  1283               	bcf	status, 5	;RP0=0, select bank0
+  1272                           	
+  1273  0222  009F               	movwf	(31)	;volatile
+  1274                           	line	14
+  1275                           ;Adcc.c: 14: }
+  1276  0223                     l1:	
+  1277  0223  0008               	return
+  1278                           ; =============== function _init_adc ends =====
+                                 ==========
+  1279                           
+  1280                           GLOBAL __end_of_init_adc
+  1281  0224                     	__end_of_init_adc:
+  1282                           	FNSIZE	_init_adc,1,0
+  1283                           	signat	_init_adc,88
+  1284                           	global	_init_SWTimer
+  1285                           	global	??_init_SWTimer
+  1286                           	global	?_init_SWTimer
+  1287                           
+  1288                           ; *************** function _init_SWTimer ******
+                                 *********
+  1289                           ; Defined at:
+  1290                           ;		line 6 in file "C:\Documents and Settings\Ja
+                                 yamma\My Documents\PIC\PIC_TEst\SW_TIMER.c"
+  1291                           ; Parameters:
+  1292                           ;		None
+  1293                           ; Auto variables:
+  1294                           ;		counter     	       	type: unsigned char 
+  1295                           ; Return value:
+  1296                           ;		type: void 
+  1297                           ;		size: 0
+  1298                           ; Registers used:
+  1299                           ;		wreg, fsr, status,2, status,0
+  1300                           ; Tracked objects:
+  1301                           ;		On entry : 0/0
+  1302                           ;		On exit  : 0/0
+  1303                           ;		Unchanged: 0/0
+  1304                           ; Data sizes:
+  1305                           ;		Autos:    1
+  1306                           ;		Params:   0
+  1307                           ;		Temp:     1
+  1308                           ;		Total:    2
+  1309                           ; This function calls:
+  1310                           ;		Nothing
+  1311                           ; This function is called by:
+  1312                           ;		_main
+  1313                           ; This function uses a non-reentrant model
+  1314                           ; 
+  1315                           	psect	text160,local,class=CODE,delta=2
+  1316                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\SW_TIMER.c"
+  1317                           	line	6
+  1318                           ;SW_TIMER.c: 5: void init_SWTimer(void)
+  1319                           ;SW_TIMER.c: 6: {
+  1320                           	
+  1321  0133                     _init_SWTimer:	
+  1322                           ; Regs used in _init_SWTimer: [wreg+fsr+status,
+                                 2+status,0]
+  1323                           	line	7
+  1324                           ;SW_TIMER.c: 7: unsigned char counter=0;
+  1325  0133  1003               	clrc
+  1326  0134  1283               	bcf	status, 5	;RP0=0, select bank0
+  1327                           	
+  1328  0135  3000               	movlw	0
+  1329  0136  1803               	btfsc	status,0
+  1330  0137  3001               	movlw	1
+  1331  0138  00A1               	movwf	(_init_SWTimer_counter)
+  1332                           	line	9
+  1333                           ;SW_TIMER.c: 9: for (counter=0;counter <4 ; cou
+                                 nter++)
+  1334  0139  1003               	clrc
+  1335                           	
+  1336  013A  3000               	movlw	0
+  1337  013B  1803               	btfsc	status,0
+  1338  013C  3001               	movlw	1
+  1339  013D  00A1               	movwf	(_init_SWTimer_counter)
+  1340  013E  293F               	goto	l44
+  1341                           	line	10
+  1342                           	
+  1343  013F                     l44:	
+  1344                           	line	11
+  1345                           ;SW_TIMER.c: 10: {
+  1346                           ;SW_TIMER.c: 11: TimerStart[counter]=0;
+  1347                           	
+  1348  013F  0821               	movf	(_init_SWTimer_counter),w
+  1349  0140  1383               	bcf	status, 7	;select IRP bank0
+  1350                           	
+  1351  0141  00A2               	movwf	(??_init_SWTimer+1+0)
+  1352  0142  0722               	addwf	(??_init_SWTimer+1+0),w
+  1353  0143  3E71               	addlw	113&0ffh
+  1354  0144  0084               	movwf	fsr
+  1355  0145  3000               	movlw	low(0)
+  1356  0146  0080               	movwf	indf
+  1357  0147  0A84               	incf	fsr,f
+  1358  0148  3000               	movlw	high(0)
+  1359  0149  0080               	movwf	indf
+  1360                           	line	12
+  1361                           ;SW_TIMER.c: 12: TimerState[counter] =2;
+  1362  014A  3002               	movlw	(02h)
+  1363  014B  00A2               	movwf	(??_init_SWTimer+1+0)
+  1364                           	
+  1365  014C  0821               	movf	(_init_SWTimer_counter),w
+  1366                           	
+  1367  014D  3E64               	addlw	100&0ffh
+  1368  014E  0084               	movwf	fsr
+  1369                           	
+  1370  014F  0822               	movf	(??_init_SWTimer+1+0),w
+  1371  0150  0080               	movwf	indf
+  1372                           	line	13
+  1373                           ;SW_TIMER.c: 13: TimerTimeOutVal[counter]=0;
+  1374                           	
+  1375  0151  0821               	movf	(_init_SWTimer_counter),w
+  1376                           	
+  1377  0152  00A2               	movwf	(??_init_SWTimer+1+0)
+  1378  0153  0722               	addwf	(??_init_SWTimer+1+0),w
+  1379  0154  3E68               	addlw	104&0ffh
+  1380  0155  0084               	movwf	fsr
+  1381  0156  3000               	movlw	low(0)
+  1382  0157  0080               	movwf	indf
+  1383  0158  0A84               	incf	fsr,f
+  1384  0159  3000               	movlw	high(0)
+  1385  015A  0080               	movwf	indf
+  1386                           	line	9
+  1387  015B  3001               	movlw	(01h)
+  1388  015C  00A2               	movwf	(??_init_SWTimer+1+0)
+  1389                           	
+  1390  015D  0822               	movf	(??_init_SWTimer+1+0),w
+  1391  015E  07A1               	addwf	(_init_SWTimer_counter),f
+  1392  015F  3004               	movlw	(04h)
+  1393                           	
+  1394  0160  0221               	subwf	(_init_SWTimer_counter),w
+  1395  0161  1C03               	skipc
+  1396  0162  2964               	goto	u1671
+  1397  0163  2965               	goto	u1670
+  1398  0164                     u1671:
+  1399  0164  293F               	goto	l44
+  1400  0165                     u1670:
+  1401                           	
+  1402  0165                     l45:	
+  1403                           	line	18
+  1404                           ;SW_TIMER.c: 15: }
+  1405                           ;SW_TIMER.c: 18: }
+  1406  0165                     l43:	
+  1407  0165  0008               	return
+  1408                           ; =============== function _init_SWTimer ends =
+                                 ==============
+  1409                           
+  1410                           GLOBAL __end_of_init_SWTimer
+  1411  0166                     	__end_of_init_SWTimer:
+  1412                           	FNSIZE	_init_SWTimer,2,0
+  1413                           	signat	_init_SWTimer,88
+  1414                           	global	_init_DigIO
+  1415                           	global	??_init_DigIO
+  1416                           	global	?_init_DigIO
+  1417                           
+  1418                           ; *************** function _init_DigIO ********
+                                 *******
+  1419                           ; Defined at:
+  1420                           ;		line 5 in file "C:\Documents and Settings\Ja
+                                 yamma\My Documents\PIC\PIC_TEst\DigIO.c"
+  1421                           ; Parameters:
+  1422                           ;		None
+  1423                           ; Auto variables:
+  1424                           ;		None
+  1425                           ; Return value:
+  1426                           ;		type: void 
+  1427                           ;		size: 0
+  1428                           ; Registers used:
+  1429                           ;		wreg, status,2, status,0
+  1430                           ; Tracked objects:
+  1431                           ;		On entry : BFF/0
+  1432                           ;		On exit  : 0/0
+  1433                           ;		Unchanged: 0/0
+  1434                           ; Data sizes:
+  1435                           ;		Autos:    0
+  1436                           ;		Params:   0
+  1437                           ;		Temp:     1
+  1438                           ;		Total:    1
+  1439                           ; This function calls:
+  1440                           ;		Nothing
+  1441                           ; This function is called by:
+  1442                           ;		_main
+  1443                           ; This function uses a non-reentrant model
+  1444                           ; 
+  1445                           	psect	text161,local,class=CODE,delta=2
+  1446                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\DigIO.c"
+  1447                           	line	5
+  1448                           ;DigIO.c: 4: void init_DigIO(void)
+  1449                           ;DigIO.c: 5: {
+  1450                           	
+  1451  0186                     _init_DigIO:	
+  1452                           ; Regs used in _init_DigIO: [wreg+status,2+stat
+                                 us,0]
+  1453                           	line	12
+  1454                           ;DigIO.c: 12: TRISA &= 0b11101111;
+  1455  0186  30EF               	movlw	(0EFh)
+  1456  0187  00A1               	movwf	(??_init_DigIO+0+0)
+  1457  0188  1683               	bsf	status, 5	;RP0=1, select bank1
+  1458                           	
+  1459  0189  1283               	bcf	status, 5	;RP0=0, select bank0
+  1460  018A  0821               	movf	(??_init_DigIO+0+0),w
+  1461  018B  1683               	bsf	status, 5	;RP0=1, select bank1
+  1462  018C  0585               	andwf	(133)^080h,f	;volatile
+  1463                           	line	13
+  1464                           ;DigIO.c: 13: PORTA &= 0x11101111;
+  1465  018D  3011               	movlw	(011h)
+  1466  018E  1283               	bcf	status, 5	;RP0=0, select bank0
+  1467  018F  00A1               	movwf	(??_init_DigIO+0+0)
+  1468                           	
+  1469  0190  0821               	movf	(??_init_DigIO+0+0),w
+  1470  0191  0585               	andwf	(5),f	;volatile
+  1471                           	line	15
+  1472                           ;DigIO.c: 15: TRISC &= 0b11011111;
+  1473  0192  30DF               	movlw	(0DFh)
+  1474  0193  00A1               	movwf	(??_init_DigIO+0+0)
+  1475  0194  1683               	bsf	status, 5	;RP0=1, select bank1
+  1476                           	
+  1477  0195  1283               	bcf	status, 5	;RP0=0, select bank0
+  1478  0196  0821               	movf	(??_init_DigIO+0+0),w
+  1479  0197  1683               	bsf	status, 5	;RP0=1, select bank1
+  1480  0198  0587               	andwf	(135)^080h,f	;volatile
+  1481                           	line	16
+  1482                           ;DigIO.c: 16: PORTC &= 0b11011111;
+  1483  0199  30DF               	movlw	(0DFh)
+  1484  019A  1283               	bcf	status, 5	;RP0=0, select bank0
+  1485  019B  00A1               	movwf	(??_init_DigIO+0+0)
+  1486                           	
+  1487  019C  0821               	movf	(??_init_DigIO+0+0),w
+  1488  019D  0587               	andwf	(7),f	;volatile
+  1489                           	line	18
+  1490                           ;DigIO.c: 18: TRISA |= 0b00100000;
+  1491  019E  1683               	bsf	status, 5	;RP0=1, select bank1
+  1492                           	
+  1493  019F  1685               	bsf	(133)^080h+(5/8),(5)&7	;volatile
+  1494                           	line	19
+  1495                           ;DigIO.c: 19: PORTA &= 0b11011111;
+  1496  01A0  30DF               	movlw	(0DFh)
+  1497  01A1  1283               	bcf	status, 5	;RP0=0, select bank0
+  1498  01A2  00A1               	movwf	(??_init_DigIO+0+0)
+  1499                           	
+  1500  01A3  0821               	movf	(??_init_DigIO+0+0),w
+  1501  01A4  0585               	andwf	(5),f	;volatile
+  1502                           	line	21
+  1503                           ;DigIO.c: 21: }
+  1504  01A5                     l17:	
+  1505  01A5  0008               	return
+  1506                           ; =============== function _init_DigIO ends ===
+                                 ============
+  1507                           
+  1508                           GLOBAL __end_of_init_DigIO
+  1509  01A6                     	__end_of_init_DigIO:
+  1510                           	FNSIZE	_init_DigIO,1,0
+  1511                           	signat	_init_DigIO,88
+  1512                           	global	_init_timer
+  1513                           	global	??_init_timer
+  1514                           	global	?_init_timer
+  1515                           
+  1516                           ; *************** function _init_timer ********
+                                 *******
+  1517                           ; Defined at:
+  1518                           ;		line 8 in file "C:\Documents and Settings\Ja
+                                 yamma\My Documents\PIC\PIC_TEst\Timerc.c"
+  1519                           ; Parameters:
+  1520                           ;		None
+  1521                           ; Auto variables:
+  1522                           ;		None
+  1523                           ; Return value:
+  1524                           ;		type: void 
+  1525                           ;		size: 0
+  1526                           ; Registers used:
+  1527                           ;		wreg
+  1528                           ; Tracked objects:
+  1529                           ;		On entry : 0/0
+  1530                           ;		On exit  : 0/0
+  1531                           ;		Unchanged: 0/0
+  1532                           ; Data sizes:
+  1533                           ;		Autos:    0
+  1534                           ;		Params:   0
+  1535                           ;		Temp:     0
+  1536                           ;		Total:    0
+  1537                           ; This function calls:
+  1538                           ;		Nothing
+  1539                           ; This function is called by:
+  1540                           ;		_main
+  1541                           ; This function uses a non-reentrant model
+  1542                           ; 
+  1543                           	psect	text162,local,class=CODE,delta=2
+  1544                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\Timerc.c"
+  1545                           	line	8
+  1546                           ;Timerc.c: 6: void init_timer(void)
+  1547                           ;Timerc.c: 8: {
+  1548                           	
+  1549  0255                     _init_timer:	
+  1550                           ; Regs used in _init_timer: [wreg]
+  1551                           	line	10
+  1552                           ;Timerc.c: 10: TMR1H = 0xFC;
+  1553  0255  30FC               	movlw	(0FCh)
+  1554  0256  1283               	bcf	status, 5	;RP0=0, select bank0
+  1555                           	
+  1556  0257  008F               	movwf	(15)	;volatile
+  1557                           	line	11
+  1558                           ;Timerc.c: 11: TMR1L =0x17;
+  1559  0258  3017               	movlw	(017h)
+  1560                           	
+  1561  0259  008E               	movwf	(14)	;volatile
+  1562                           	line	12
+  1563                           ;Timerc.c: 12: T1CON = 0x01;
+  1564  025A  3001               	movlw	(01h)
+  1565                           	
+  1566  025B  0090               	movwf	(16)	;volatile
+  1567                           	line	14
+  1568                           ;Timerc.c: 14: TMR1IF=0;
+  1569  025C  100C               	bcf	(96/8),(96)&7
+  1570                           	line	15
+  1571                           ;Timerc.c: 15: TMR1IE =1;
+  1572  025D  1683               	bsf	status, 5	;RP0=1, select bank1
+  1573  025E  140C               	bsf	(1120/8)^080h,(1120)&7
+  1574                           	line	18
+  1575                           ;Timerc.c: 18: }
+  1576  025F                     l52:	
+  1577  025F  0008               	return
+  1578                           ; =============== function _init_timer ends ===
+                                 ============
+  1579                           
+  1580                           GLOBAL __end_of_init_timer
+  1581  0260                     	__end_of_init_timer:
+  1582                           	FNSIZE	_init_timer,0,0
+  1583                           	signat	_init_timer,88
+  1584                           	global	_Start_Timer
+  1585                           	global	??_Start_Timer
+  1586                           	global	?_Start_Timer
+  1587                           
+  1588                           ; *************** function _Start_Timer *******
+                                 ********
+  1589                           ; Defined at:
+  1590                           ;		line 22 in file "C:\Documents and Settings\J
+                                 ayamma\My Documents\PIC\PIC_TEst\SW_TIMER.c"
+  1591                           ; Parameters:
+  1592                           ;		Timer_ID    	reg:   wr	type: unsigned char 
+  1593                           ;		TimeoutVal  	offs:   0	type: unsigned int 
+  1594                           ; Auto variables:
+  1595                           ;		Timer_ID    	       	type: unsigned char 
+  1596                           ; Return value:
+  1597                           ;		type: void 
+  1598                           ;		size: 0
+  1599                           ; Registers used:
+  1600                           ;		wreg, fsr, status,2, status,0
+  1601                           ; Tracked objects:
+  1602                           ;		On entry : 100/0
+  1603                           ;		On exit  : 0/0
+  1604                           ;		Unchanged: 0/0
+  1605                           ; Data sizes:
+  1606                           ;		Autos:    1
+  1607                           ;		Params:   2
+  1608                           ;		Temp:     1
+  1609                           ;		Total:    4
+  1610                           ; This function calls:
+  1611                           ;		Nothing
+  1612                           ; This function is called by:
+  1613                           ;		_main
+  1614                           ; This function uses a non-reentrant model
+  1615                           ; 
+  1616                           	psect	text163,local,class=CODE,delta=2
+  1617                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\SW_TIMER.c"
+  1618                           	line	22
+  1619                           ;SW_TIMER.c: 21: void Start_Timer(unsigned char
+                                  Timer_ID , unsigned int TimeoutVal)
+  1620                           ;SW_TIMER.c: 22: {
+  1621                           	
+  1622  01A6                     _Start_Timer:	
+  1623                           ; Regs used in _Start_Timer: [wreg+fsr+status,2
+                                 +status,0]
+  1624                           ;_Start_Timer_Timer_ID stored from wreg
+  1625                           	
+  1626  01A6  00A3               	movwf	(_Start_Timer_Timer_ID)
+  1627                           	line	23
+  1628                           ;SW_TIMER.c: 23: TimerStart[Timer_ID] = Ref1ms_
+                                 counter;
+  1629                           	
+  1630                           	
+  1631  01A7  0823               	movf	(_Start_Timer_Timer_ID),w
+  1632  01A8  1383               	bcf	status, 7	;select IRP bank0
+  1633                           	
+  1634  01A9  00A4               	movwf	(??_Start_Timer+1+0)
+  1635  01AA  0724               	addwf	(??_Start_Timer+1+0),w
+  1636  01AB  3E71               	addlw	113&0ffh
+  1637  01AC  0084               	movwf	fsr
+  1638  01AD  0879               	movf	(121),w	;volatile
+  1639  01AE  0080               	movwf	indf
+  1640  01AF  0A84               	incf	fsr,f
+  1641  01B0  087A               	movf	(121+1),w	;volatile
+  1642  01B1  0080               	movwf	indf
+  1643                           	line	24
+  1644                           ;SW_TIMER.c: 24: TimerState[Timer_ID] =1;
+  1645                           	
+  1646  01B2  0823               	movf	(_Start_Timer_Timer_ID),w
+  1647                           	
+  1648  01B3  3E64               	addlw	100&0ffh
+  1649  01B4  0084               	movwf	fsr
+  1650                           	
+  1651  01B5  0180               	clrf	indf
+  1652  01B6  1403               	bsf	status,0
+  1653  01B7  0D80               	rlf	indf,f
+  1654                           	line	25
+  1655                           ;SW_TIMER.c: 25: TimerTimeOutVal[Timer_ID] =Tim
+                                 eoutVal;
+  1656                           	
+  1657                           	
+  1658  01B8  0823               	movf	(_Start_Timer_Timer_ID),w
+  1659                           	
+  1660  01B9  00A4               	movwf	(??_Start_Timer+1+0)
+  1661  01BA  0724               	addwf	(??_Start_Timer+1+0),w
+  1662  01BB  3E68               	addlw	104&0ffh
+  1663  01BC  0084               	movwf	fsr
+  1664  01BD  0821               	movf	(_Start_Timer_TimeoutVal),w
+  1665  01BE  0080               	movwf	indf
+  1666  01BF  0A84               	incf	fsr,f
+  1667  01C0  0822               	movf	(_Start_Timer_TimeoutVal+1),w
+  1668  01C1  0080               	movwf	indf
+  1669                           	line	26
+  1670                           ;SW_TIMER.c: 26: }
+  1671  01C2                     l47:	
+  1672  01C2  0008               	return
+  1673                           ; =============== function _Start_Timer ends ==
+                                 =============
+  1674                           
+  1675                           GLOBAL __end_of_Start_Timer
+  1676  01C3                     	__end_of_Start_Timer:
+  1677                           	FNSIZE	_Start_Timer,2,2
+  1678                           	signat	_Start_Timer,8312
+  1679                           	global	_alarm_on
+  1680                           	global	??_alarm_on
+  1681                           	global	?_alarm_on
+  1682                           
+  1683                           ; *************** function _alarm_on **********
+                                 *****
+  1684                           ; Defined at:
+  1685                           ;		line 43 in file "C:\Documents and Settings\J
+                                 ayamma\My Documents\PIC\PIC_TEst\DigIO.c"
+  1686                           ; Parameters:
+  1687                           ;		None
+  1688                           ; Auto variables:
+  1689                           ;		None
+  1690                           ; Return value:
+  1691                           ;		type: void 
+  1692                           ;		size: 0
+  1693                           ; Registers used:
+  1694                           ;		None
+  1695                           ; Tracked objects:
+  1696                           ;		On entry : 0/0
+  1697                           ;		On exit  : 0/0
+  1698                           ;		Unchanged: 0/0
+  1699                           ; Data sizes:
+  1700                           ;		Autos:    0
+  1701                           ;		Params:   0
+  1702                           ;		Temp:     0
+  1703                           ;		Total:    0
+  1704                           ; This function calls:
+  1705                           ;		Nothing
+  1706                           ; This function is called by:
+  1707                           ;		_main
+  1708                           ; This function uses a non-reentrant model
+  1709                           ; 
+  1710                           	psect	text164,local,class=CODE,delta=2
+  1711                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\DigIO.c"
+  1712                           	line	43
+  1713                           ;DigIO.c: 42: void alarm_on(void)
+  1714                           ;DigIO.c: 43: {
+  1715                           	
+  1716  026C                     _alarm_on:	
+  1717                           ; Regs used in _alarm_on: []
+  1718                           	line	44
+  1719                           ;DigIO.c: 44: PORTA |= 0b00010000;
+  1720  026C  1283               	bcf	status, 5	;RP0=0, select bank0
+  1721                           	
+  1722  026D  1605               	bsf	(5)+(4/8),(4)&7	;volatile
+  1723                           	line	45
+  1724                           ;DigIO.c: 45: }
+  1725  026E                     l21:	
+  1726  026E  0008               	return
+  1727                           ; =============== function _alarm_on ends =====
+                                 ==========
+  1728                           
+  1729                           GLOBAL __end_of_alarm_on
+  1730  026F                     	__end_of_alarm_on:
+  1731                           	FNSIZE	_alarm_on,0,0
+  1732                           	signat	_alarm_on,88
+  1733                           	global	_heater_off
+  1734                           	global	??_heater_off
+  1735                           	global	?_heater_off
+  1736                           
+  1737                           ; *************** function _heater_off ********
+                                 *******
+  1738                           ; Defined at:
+  1739                           ;		line 58 in file "C:\Documents and Settings\J
+                                 ayamma\My Documents\PIC\PIC_TEst\DigIO.c"
+  1740                           ; Parameters:
+  1741                           ;		None
+  1742                           ; Auto variables:
+  1743                           ;		None
+  1744                           ; Return value:
+  1745                           ;		type: void 
+  1746                           ;		size: 0
+  1747                           ; Registers used:
+  1748                           ;		wreg, status,2, status,0
+  1749                           ; Tracked objects:
+  1750                           ;		On entry : 0/0
+  1751                           ;		On exit  : 0/0
+  1752                           ;		Unchanged: 0/0
+  1753                           ; Data sizes:
+  1754                           ;		Autos:    0
+  1755                           ;		Params:   0
+  1756                           ;		Temp:     1
+  1757                           ;		Total:    1
+  1758                           ; This function calls:
+  1759                           ;		Nothing
+  1760                           ; This function is called by:
+  1761                           ;		_main
+  1762                           ; This function uses a non-reentrant model
+  1763                           ; 
+  1764                           	psect	text165,local,class=CODE,delta=2
+  1765                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\DigIO.c"
+  1766                           	line	58
+  1767                           ;DigIO.c: 57: void heater_off(void)
+  1768                           ;DigIO.c: 58: {
+  1769                           	
+  1770  0266                     _heater_off:	
+  1771                           ; Regs used in _heater_off: [wreg+status,2+stat
+                                 us,0]
+  1772                           	line	59
+  1773                           ;DigIO.c: 59: PORTC &= 0b11011111;
+  1774  0266  30DF               	movlw	(0DFh)
+  1775  0267  1283               	bcf	status, 5	;RP0=0, select bank0
+  1776  0268  00A1               	movwf	(??_heater_off+0+0)
+  1777                           	
+  1778  0269  0821               	movf	(??_heater_off+0+0),w
+  1779  026A  0587               	andwf	(7),f	;volatile
+  1780                           	line	60
+  1781                           ;DigIO.c: 60: }
+  1782  026B                     l24:	
+  1783  026B  0008               	return
+  1784                           ; =============== function _heater_off ends ===
+                                 ============
+  1785                           
+  1786                           GLOBAL __end_of_heater_off
+  1787  026C                     	__end_of_heater_off:
+  1788                           	FNSIZE	_heater_off,1,0
+  1789                           	signat	_heater_off,88
+  1790                           	global	_Read_Adc
+  1791                           	global	??_Read_Adc
+  1792                           	global	?_Read_Adc
+  1793                           
+  1794                           ; *************** function _Read_Adc **********
+                                 *****
+  1795                           ; Defined at:
+  1796                           ;		line 18 in file "C:\Documents and Settings\J
+                                 ayamma\My Documents\PIC\PIC_TEst\Adcc.c"
+  1797                           ; Parameters:
+  1798                           ;		Channel     	reg:   wr	type: unsigned char 
+  1799                           ; Auto variables:
+  1800                           ;		Channel     	       	type: unsigned char 
+  1801                           ; Return value:
+  1802                           ;		type: unsigned char 
+  1803                           ;		size: 1
+  1804                           ; Registers used:
+  1805                           ;		wreg, status,2, status,0, pclath, cstack
+  1806                           ; Tracked objects:
+  1807                           ;		On entry : 0/0
+  1808                           ;		On exit  : 0/0
+  1809                           ;		Unchanged: 0/0
+  1810                           ; Data sizes:
+  1811                           ;		Autos:    1
+  1812                           ;		Params:   0
+  1813                           ;		Temp:     2
+  1814                           ;		Total:    3
+  1815                           ; This function calls:
+  1816                           ;		_adc_delay
+  1817                           ; This function is called by:
+  1818                           ;		_Read_Adc_E0
+  1819                           ;		_Read_Adc_E1
+  1820                           ; This function uses a non-reentrant model
+  1821                           ; 
+  1822                           	psect	text166,local,class=CODE,delta=2
+  1823                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\Adcc.c"
+  1824                           	line	18
+  1825                           ;Adcc.c: 17: unsigned char Read_Adc(unsigned ch
+                                 ar Channel)
+  1826                           ;Adcc.c: 18: {
+  1827                           	
+  1828  0166                     _Read_Adc:	
+  1829                           ; Regs used in _Read_Adc: [wreg+status,2+status
+                                 ,0+pclath+cstack]
+  1830                           ;_Read_Adc_Channel stored from wreg
+  1831                           	line	20
+  1832  0166  1283               	bcf	status, 5	;RP0=0, select bank0
+  1833                           	
+  1834  0167  00A3               	movwf	(_Read_Adc_Channel)
+  1835                           ;Adcc.c: 20: ADCON0 &= 0xE3;
+  1836  0168  30E3               	movlw	(0E3h)
+  1837  0169  00A4               	movwf	(??_Read_Adc+1+0)
+  1838                           	
+  1839  016A  0824               	movf	(??_Read_Adc+1+0),w
+  1840  016B  059F               	andwf	(31),f	;volatile
+  1841                           	line	21
+  1842                           ;Adcc.c: 21: ADCON0 |= (Channel <<2);
+  1843                           	
+  1844  016C  0823               	movf	(_Read_Adc_Channel),w
+  1845  016D  1383               	bcf	status, 7	;select IRP bank0
+  1846                           	
+  1847  016E  00A4               	movwf	(??_Read_Adc+1+0)
+  1848  016F  3001               	movlw	(02h)-1
+  1849  0170                     u1685:
+  1850  0170  1003               	clrc
+  1851  0171  0DA4               	rlf	(??_Read_Adc+1+0),f
+  1852  0172  3EFF               	addlw	-1
+  1853  0173  1D03               	skipz
+  1854  0174  2970               	goto	u1685
+  1855  0175  1003               	clrc
+  1856  0176  0D24               	rlf	(??_Read_Adc+1+0),w
+  1857  0177  00A5               	movwf	(??_Read_Adc+2+0)
+  1858                           	
+  1859  0178  0825               	movf	(??_Read_Adc+2+0),w
+  1860  0179  049F               	iorwf	(31),f	;volatile
+  1861                           	line	22
+  1862                           ;Adcc.c: 22: adc_delay(100);
+  1863  017A  3064               	movlw	(064h)
+  1864  017B  2238               	fcall	_adc_delay
+  1865                           	line	23
+  1866                           ;Adcc.c: 23: GODONE = 1;
+  1867  017C  1283               	bcf	status, 5	;RP0=0, select bank0
+  1868  017D  149F               	bsf	(249/8),(249)&7
+  1869                           	line	24
+  1870                           ;Adcc.c: 24: while(GODONE == 1 );
+  1871  017E  297F               	goto	l3
+  1872                           	
+  1873  017F                     l3:	
+  1874  017F  189F               	btfsc	(249/8),(249)&7
+  1875  0180  2982               	goto	u1691
+  1876  0181  2983               	goto	u1690
+  1877  0182                     u1691:
+  1878  0182  297F               	goto	l3
+  1879  0183                     u1690:
+  1880                           	
+  1881  0183                     l5:	
+  1882                           	line	26
+  1883                           ;Adcc.c: 26: return ADRESH;
+  1884                           	
+  1885  0183  081E               	movf	(30),w	;volatile
+  1886                           	
+  1887  0184  2985               	goto	l2
+  1888                           	line	28
+  1889                           ;Adcc.c: 28: }
+  1890  0185                     l2:	
+  1891  0185  0008               	return
+  1892                           ; =============== function _Read_Adc ends =====
+                                 ==========
+  1893                           
+  1894                           GLOBAL __end_of_Read_Adc
+  1895  0186                     	__end_of_Read_Adc:
+  1896                           	FNSIZE	_Read_Adc,3,0
+  1897                           	signat	_Read_Adc,4217
+  1898                           	global	_adc_delay
+  1899                           	global	??_adc_delay
+  1900                           	global	?_adc_delay
+  1901                           
+  1902                           ; *************** function _adc_delay *********
+                                 ******
+  1903                           ; Defined at:
+  1904                           ;		line 68 in file "C:\Documents and Settings\J
+                                 ayamma\My Documents\PIC\PIC_TEst\Adcc.c"
+  1905                           ; Parameters:
+  1906                           ;		x           	reg:   wr	type: unsigned char 
+  1907                           ; Auto variables:
+  1908                           ;		x           	       	type: unsigned char 
+  1909                           ;		y           	       	type: unsigned char 
+  1910                           ; Return value:
+  1911                           ;		type: void 
+  1912                           ;		size: 0
+  1913                           ; Registers used:
+  1914                           ;		wreg, status,2, status,0
+  1915                           ; Tracked objects:
+  1916                           ;		On entry : 900/0
+  1917                           ;		On exit  : 0/0
+  1918                           ;		Unchanged: 0/0
+  1919                           ; Data sizes:
+  1920                           ;		Autos:    2
+  1921                           ;		Params:   0
+  1922                           ;		Temp:     1
+  1923                           ;		Total:    3
+  1924                           ; This function calls:
+  1925                           ;		Nothing
+  1926                           ; This function is called by:
+  1927                           ;		_Read_Adc
+  1928                           ; This function uses a non-reentrant model
+  1929                           ; 
+  1930                           	psect	text167,local,class=CODE,delta=2
+  1931                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\Adcc.c"
+  1932                           	line	68
+  1933                           ;Adcc.c: 67: void adc_delay(unsigned char x)
+  1934                           ;Adcc.c: 68: {
+  1935                           	
+  1936  0238                     _adc_delay:	
+  1937                           ; Regs used in _adc_delay: [wreg+status,2+statu
+                                 s,0]
+  1938                           ;_adc_delay_x stored from wreg
+  1939                           	line	70
+  1940                           	
+  1941  0238  00A6               	movwf	(_adc_delay_x)
+  1942                           ;Adcc.c: 69: unsigned char y;
+  1943                           ;Adcc.c: 70: for(y=0;y<x;y++)
+  1944  0239  1003               	clrc
+  1945                           	
+  1946  023A  3000               	movlw	0
+  1947  023B  1803               	btfsc	status,0
+  1948  023C  3001               	movlw	1
+  1949  023D  00A7               	movwf	(_adc_delay_y)
+  1950  023E  2A43               	goto	l16
+  1951                           	line	71
+  1952                           	
+  1953  023F                     l13:	
+  1954                           	line	70
+  1955                           ;Adcc.c: 71: {
+  1956                           ;Adcc.c: 72: ;
+  1957  023F  3001               	movlw	(01h)
+  1958  0240  00A8               	movwf	(??_adc_delay+2+0)
+  1959                           	
+  1960  0241  0828               	movf	(??_adc_delay+2+0),w
+  1961  0242  07A7               	addwf	(_adc_delay_y),f
+  1962                           	
+  1963  0243                     l16:	
+  1964                           	
+  1965  0243  0826               	movf	(_adc_delay_x),w
+  1966                           	
+  1967                           	
+  1968  0244  0227               	subwf	(_adc_delay_y),w
+  1969  0245  1C03               	skipc
+  1970  0246  2A48               	goto	u1701
+  1971  0247  2A49               	goto	u1700
+  1972  0248                     u1701:
+  1973  0248  2A3F               	goto	l13
+  1974  0249                     u1700:
+  1975                           	
+  1976  0249                     l14:	
+  1977                           	line	75
+  1978                           ;Adcc.c: 73: }
+  1979                           ;Adcc.c: 75: }
+  1980  0249                     l12:	
+  1981  0249  0008               	return
+  1982                           ; =============== function _adc_delay ends ====
+                                 ===========
+  1983                           
+  1984                           GLOBAL __end_of_adc_delay
+  1985  024A                     	__end_of_adc_delay:
+  1986                           	FNSIZE	_adc_delay,3,0
+  1987                           	signat	_adc_delay,4216
+  1988                           	global	_isr
+  1989                           	global	??_isr
+  1990                           	global	?_isr
+  1991                           
+  1992                           ; *************** function _isr ***************
+  1993                           ; Defined at:
+  1994                           ;		line 25 in file "C:\Documents and Settings\J
+                                 ayamma\My Documents\PIC\PIC_TEst\Timerc.c"
+  1995                           ; Parameters:
+  1996                           ;		None
+  1997                           ; Auto variables:
+  1998                           ;		None
+  1999                           ; Return value:
+  2000                           ;		type: void 
+  2001                           ;		size: 0
+  2002                           ; Registers used:
+  2003                           ;		wreg
+  2004                           ; Tracked objects:
+  2005                           ;		On entry : 100/0
+  2006                           ;		On exit  : 0/0
+  2007                           ;		Unchanged: 0/0
+  2008                           ; Data sizes:
+  2009                           ;		Autos:    0
+  2010                           ;		Params:   0
+  2011                           ;		Temp:     4
+  2012                           ;		Total:    4
+  2013                           ; This function calls:
+  2014                           ;		Nothing
+  2015                           ; This function is called by:
+  2016                           ;		Interrupt level 1
+  2017                           ; This function uses a non-reentrant model
+  2018                           ; 
+  2019                           	psect	intrtext,class=CODE,delta=2
+  2020                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\Timerc.c"
+  2021                           	line	25
+  2022                           ;Timerc.c: 23: static void interrupt isr(void)
+  2023                           ;Timerc.c: 25: {
+  2024                           	
+  2025  01DF                     _isr:	
+  2026                           ; Regs used in _isr: [wreg]
+  2027                           	psect	intentry,class=CODE,delta=2
+  2028                           global interrupt_function
+  2029  0004                     interrupt_function:
+  2030                           	global saved_w
+  2031  0000                     	saved_w	set	btemp+1
+  2032  0004  00FF               	movwf	saved_w
+  2033  0005  0803               	movf	status,w
+  2034  0006  1283               	bcf	status, 5	;RP0=0, select bank0
+  2035  0007  00AA               	movwf	(??_isr+0)
+  2036  0008  0804               	movf	fsr,w
+  2037  0009  00AB               	movwf	(??_isr+1)
+  2038  000A  080A               	movf	pclath,w
+  2039  000B  00AC               	movwf	(??_isr+2)
+  2040  000C  087E               	movf	btemp+0,w
+  2041  000D  00AD               	movwf	(??_isr+3)
+  2042  000E  29DF               	ljmp	_isr
+  2043                           	psect	intrtext
+  2044                           	line	27
+  2045                           ;Timerc.c: 27: if (TMR1IF)
+  2046  01DF  1C0C               	btfss	(96/8),(96)&7
+  2047  01E0  29E2               	goto	i1u1201
+  2048  01E1  29E3               	goto	i1u1200
+  2049  01E2                     i1u1201:
+  2050  01E2  29E9               	goto	i1l54
+  2051  01E3                     i1u1200:
+  2052                           	line	30
+  2053                           ;Timerc.c: 29: {
+  2054                           ;Timerc.c: 30: Ref1ms_counter++;
+  2055                           	
+  2056  01E3  3001               	movlw	low(01h)
+  2057  01E4  07F9               	addwf	(121),f	;volatile
+  2058  01E5  1803               	skipnc
+  2059  01E6  0AFA               	incf	(121+1),f	;volatile
+  2060  01E7  3000               	movlw	high(01h)
+  2061  01E8  07FA               	addwf	(121+1),f	;volatile
+  2062                           	line	31
+  2063                           	
+  2064  01E9                     i1l54:	
+  2065                           	line	32
+  2066                           ;Timerc.c: 31: }
+  2067                           ;Timerc.c: 32: TMR1H = 0xFC;
+  2068  01E9  30FC               	movlw	(0FCh)
+  2069                           	
+  2070  01EA  008F               	movwf	(15)	;volatile
+  2071                           	line	33
+  2072                           ;Timerc.c: 33: TMR1L =0x17;
+  2073  01EB  3017               	movlw	(017h)
+  2074                           	
+  2075  01EC  008E               	movwf	(14)	;volatile
+  2076                           	line	34
+  2077                           ;Timerc.c: 34: TMR1IF=0;
+  2078  01ED  100C               	bcf	(96/8),(96)&7
+  2079                           	line	36
+  2080                           ;Timerc.c: 36: }
+  2081  01EE                     i1l53:	
+  2082  01EE  082D               	movf	(??_isr+3),w
+  2083  01EF  00FE               	movwf	btemp+0
+  2084  01F0  082C               	movf	(??_isr+2),w
+  2085  01F1  008A               	movwf	pclath
+  2086  01F2  082B               	movf	(??_isr+1),w
+  2087  01F3  0084               	movwf	fsr
+  2088  01F4  082A               	movf	(??_isr+0),w
+  2089  01F5  0083               	movwf	status
+  2090  01F6  0EFF               	swapf	saved_w,f
+  2091  01F7  0E7F               	swapf	saved_w,w
+  2092  01F8  0009               	retfie
+  2093                           ; =============== function _isr ends ==========
+                                 =====
+  2094                           
+  2095                           GLOBAL __end_of_isr
+  2096  01F9                     	__end_of_isr:
+  2097                           	FNSIZE	_isr,4,0
+  2098                           	signat	_isr,88
+  2099                           	FNCALL	_main,_init_DigIO
+  2100                           	FNCALL	_main,_init_timer
+  2101                           	FNCALL	_main,_init_adc
+  2102                           	FNCALL	_main,_init_SWTimer
+  2103                           	FNCALL	_main,_Start_Timer
+  2104                           	FNCALL	_main,_alarm_on
+  2105                           	FNCALL	_main,_heater_off
+  2106                           	FNCALL	_main,_GetTimer_State
+  2107                           	FNCALL	_main,_Read_Adc_E1
+  2108                           	FNCALL	_main,_Read_Adc_E0
+  2109                           	FNCALL	_main,_Stop_Timer
+  2110                           	FNCALL	_main,_alarm_off
+  2111                           	FNCALL	_main,_read_pressure_switch
+  2112                           	FNCALL	_main,_heater_on
+  2113                           	FNCALL	_Read_Adc_E0,_Read_Adc
+  2114                           	FNCALL	_Read_Adc_E1,_Read_Adc
+  2115                           	FNCALL	_Read_Adc,_adc_delay
+  2116                           	FNROOT	_main
+  2117                           	FNCALL	intlevel1,_isr
+  2118                           	global	intlevel1
+  2119                           	FNROOT	intlevel1
+  2120                           	global	_WaterSensed_PrevState
+  2121                           	psect	rbss_0,class=BANK0,space=1
+  2122                           
+  2123                           	DABS	1,98,1	;_WaterSensed_PrevState
+  2124  0000                     	_WaterSensed_PrevState	set	0x62
+  2125                           
+  2126                           	global	_WaterSensed_State
+  2127                           
+  2128                           	DABS	1,99,1	;_WaterSensed_State
+  2129  0000                     	_WaterSensed_State	set	0x63
+  2130                           
+  2131                           	psect	idata,class=CODE,delta=2,space=0
+  2132                           	file	"C:\Documents and Settings\Jayamma\My Doc
+                                 uments\PIC\PIC_TEst\main.c"
+  2133                           	line	11
+  2134                           
+  2135                           ;initializer for _WaterSensed_PrevState
+  2136  00F0  3402               	retlw	02h
+  2137                           	line	10
+  2138                           
+  2139                           ;initializer for _WaterSensed_State
+  2140  00F1  3402               	retlw	02h
+  2141                           	psect	strings,class=CODE,delta=2,reloc=256
+  2142                           	global	_TimerStart
+  2143                           	psect	common,class=COMMON,space=1
+  2144                           
+  2145                           	DABS	1,113,8	;_TimerStart
+  2146  0000                     	_TimerStart	set	0x71
+  2147                           
+  2148                           	global	_TimerTimeOutVal
+  2149                           	psect	rbss_0
+  2150                           
+  2151                           	DABS	1,104,8	;_TimerTimeOutVal
+  2152  0000                     	_TimerTimeOutVal	set	0x68
+  2153                           
+  2154                           	global	_TimerState
+  2155                           
+  2156                           	DABS	1,100,4	;_TimerState
+  2157  0000                     	_TimerState	set	0x64
+  2158                           
+  2159                           	global	_Ref1ms_counter
+  2160                           	psect	common
+  2161                           
+  2162                           	DABS	1,121,2	;_Ref1ms_counter
+  2163  0000                     	_Ref1ms_counter	set	0x79
+  2164                           
+  2165                           	global	_Switch_PrevState
+  2166                           
+  2167                           	DABS	1,125,1	;_Switch_PrevState
+  2168  0000                     	_Switch_PrevState	set	0x7D
+  2169                           
+  2170                           	global	_Switch_State
+  2171                           
+  2172                           	DABS	1,124,1	;_Switch_State
+  2173  0000                     	_Switch_State	set	0x7C
+  2174                           
+  2175                           	global	_pressuresw_Flag
+  2176                           
+  2177                           	DABS	1,123,1	;_pressuresw_Flag
+  2178  0000                     	_pressuresw_Flag	set	0x7B
+  2179                           
+  2180                           	global	_ADCON0
+  2181  0000                     	_ADCON0	set	0x1F
+  2182                           
+  2183                           	global	_ADCON1
+  2184  0000                     	_ADCON1	set	0x9F
+  2185                           
+  2186                           	global	_ADRESH
+  2187  0000                     	_ADRESH	set	0x1E
+  2188                           
+  2189                           	global	_ADRESL
+  2190                           	global	_ADRESL
+  2191  0000                     	_ADRESL	set	0x9E
+  2192                           
+  2193                           	global	_ANSEL
+  2194  0000                     	_ANSEL	set	0x91
+  2195                           
+  2196                           	global	_CCP1CON
+  2197                           	global	_CCP1CON
+  2198  0000                     	_CCP1CON	set	0x15
+  2199                           
+  2200                           	global	_CCPR1H
+  2201                           	global	_CCPR1H
+  2202  0000                     	_CCPR1H	set	0x14
+  2203                           
+  2204                           	global	_CCPR1L
+  2205                           	global	_CCPR1L
+  2206  0000                     	_CCPR1L	set	0x13
+  2207                           
+  2208                           	global	_CMCON0
+  2209  0000                     	_CMCON0	set	0x19
+  2210                           
+  2211                           	global	_CMCON1
+  2212                           	global	_CMCON1
+  2213  0000                     	_CMCON1	set	0x1A
+  2214                           
+  2215                           	global	_ECCPAS
+  2216                           	global	_ECCPAS
+  2217  0000                     	_ECCPAS	set	0x17
+  2218                           
+  2219                           	global	_EEADR
+  2220                           	global	_EEADR
+  2221  0000                     	_EEADR	set	0x9B
+  2222                           
+  2223                           	global	_EEADRL
+  2224                           	global	_EEADRL
+  2225  0000                     	_EEADRL	set	0x9B
+  2226                           
+  2227                           	global	_EECON1
+  2228                           	global	_EECON1
+  2229  0000                     	_EECON1	set	0x9C
+  2230                           
+  2231                           	global	_EECON2
+  2232                           	global	_EECON2
+  2233  0000                     	_EECON2	set	0x9D
+  2234                           
+  2235                           	global	_EEDAT
+  2236                           	global	_EEDAT
+  2237  0000                     	_EEDAT	set	0x9A
+  2238                           
+  2239                           	global	_EEDATA
+  2240                           	global	_EEDATA
+  2241  0000                     	_EEDATA	set	0x9A
+  2242                           
+  2243                           	global	_FSR
+  2244                           	global	_FSR
+  2245  0000                     	_FSR	set	0x4
+  2246                           
+  2247                           	global	_INDF
+  2248                           	global	_INDF
+  2249  0000                     	_INDF	set	0x0
+  2250                           
+  2251                           	global	_INTCON
+  2252                           	global	_INTCON
+  2253  0000                     	_INTCON	set	0xB
+  2254                           
+  2255                           	global	_IOCA
+  2256                           	global	_IOCA
+  2257  0000                     	_IOCA	set	0x96
+  2258                           
+  2259                           	global	_OPTION
+  2260                           	global	_OPTION
+  2261  0000                     	_OPTION	set	0x81
+  2262                           
+  2263                           	global	_OSCCON
+  2264                           	global	_OSCCON
+  2265  0000                     	_OSCCON	set	0x8F
+  2266                           
+  2267                           	global	_OSCTUNE
+  2268                           	global	_OSCTUNE
+  2269  0000                     	_OSCTUNE	set	0x90
+  2270                           
+  2271                           	global	_PCL
+  2272                           	global	_PCL
+  2273  0000                     	_PCL	set	0x2
+  2274                           
+  2275                           	global	_PCLATH
+  2276                           	global	_PCLATH
+  2277  0000                     	_PCLATH	set	0xA
+  2278                           
+  2279                           	global	_PCON
+  2280                           	global	_PCON
+  2281  0000                     	_PCON	set	0x8E
+  2282                           
+  2283                           	global	_PIE1
+  2284                           	global	_PIE1
+  2285  0000                     	_PIE1	set	0x8C
+  2286                           
+  2287                           	global	_PIR1
+  2288                           	global	_PIR1
+  2289  0000                     	_PIR1	set	0xC
+  2290                           
+  2291                           	global	_PORTA
+  2292  0000                     	_PORTA	set	0x5
+  2293                           
+  2294                           	global	_PORTC
+  2295  0000                     	_PORTC	set	0x7
+  2296                           
+  2297                           	global	_PR2
+  2298                           	global	_PR2
+  2299  0000                     	_PR2	set	0x92
+  2300                           
+  2301                           	global	_PWM1CON
+  2302                           	global	_PWM1CON
+  2303  0000                     	_PWM1CON	set	0x16
+  2304                           
+  2305                           	global	_STATUS
+  2306                           	global	_STATUS
+  2307  0000                     	_STATUS	set	0x3
+  2308                           
+  2309                           	global	_T1CON
+  2310  0000                     	_T1CON	set	0x10
+  2311                           
+  2312                           	global	_T2CON
+  2313                           	global	_T2CON
+  2314  0000                     	_T2CON	set	0x12
+  2315                           
+  2316                           	global	_TMR0
+  2317                           	global	_TMR0
+  2318  0000                     	_TMR0	set	0x1
+  2319                           
+  2320                           	global	_TMR1H
+  2321  0000                     	_TMR1H	set	0xF
+  2322                           
+  2323                           	global	_TMR1L
+  2324  0000                     	_TMR1L	set	0xE
+  2325                           
+  2326                           	global	_TMR2
+  2327                           	global	_TMR2
+  2328  0000                     	_TMR2	set	0x11
+  2329                           
+  2330                           	global	_TRISA
+  2331  0000                     	_TRISA	set	0x85
+  2332                           
+  2333                           	global	_TRISC
+  2334  0000                     	_TRISC	set	0x87
+  2335                           
+  2336                           	global	_VRCON
+  2337                           	global	_VRCON
+  2338  0000                     	_VRCON	set	0x99
+  2339                           
+  2340                           	global	_WDTCON
+  2341                           	global	_WDTCON
+  2342  0000                     	_WDTCON	set	0x18
+  2343                           
+  2344                           	global	_WPUA
+  2345                           	global	_WPUA
+  2346  0000                     	_WPUA	set	0x95
+  2347                           
+  2348                           	global	_ADCS0
+  2349                           	global	_ADCS0
+  2350  0000                     	_ADCS0	set	0x4FC	;byte address: 0x9F
+  2351                           
+  2352                           	global	_ADCS1
+  2353                           	global	_ADCS1
+  2354  0000                     	_ADCS1	set	0x4FD	;byte address: 0x9F
+  2355                           
+  2356                           	global	_ADCS2
+  2357                           	global	_ADCS2
+  2358  0000                     	_ADCS2	set	0x4FE	;byte address: 0x9F
+  2359                           
+  2360                           	global	_ADFM
+  2361                           	global	_ADFM
+  2362  0000                     	_ADFM	set	0xFF	;byte address: 0x1F
+  2363                           
+  2364                           	global	_ADIE
+  2365                           	global	_ADIE
+  2366  0000                     	_ADIE	set	0x466	;byte address: 0x8C
+  2367                           
+  2368                           	global	_ADIF
+  2369                           	global	_ADIF
+  2370  0000                     	_ADIF	set	0x66	;byte address: 0xC
+  2371                           
+  2372                           	global	_ADON
+  2373                           	global	_ADON
+  2374  0000                     	_ADON	set	0xF8	;byte address: 0x1F
+  2375                           
+  2376                           	global	_ANS0
+  2377                           	global	_ANS0
+  2378  0000                     	_ANS0	set	0x488	;byte address: 0x91
+  2379                           
+  2380                           	global	_ANS1
+  2381                           	global	_ANS1
+  2382  0000                     	_ANS1	set	0x489	;byte address: 0x91
+  2383                           
+  2384                           	global	_ANS2
+  2385                           	global	_ANS2
+  2386  0000                     	_ANS2	set	0x48A	;byte address: 0x91
+  2387                           
+  2388                           	global	_ANS3
+  2389                           	global	_ANS3
+  2390  0000                     	_ANS3	set	0x48B	;byte address: 0x91
+  2391                           
+  2392                           	global	_ANS4
+  2393                           	global	_ANS4
+  2394  0000                     	_ANS4	set	0x48C	;byte address: 0x91
+  2395                           
+  2396                           	global	_ANS5
+  2397                           	global	_ANS5
+  2398  0000                     	_ANS5	set	0x48D	;byte address: 0x91
+  2399                           
+  2400                           	global	_ANS6
+  2401                           	global	_ANS6
+  2402  0000                     	_ANS6	set	0x48E	;byte address: 0x91
+  2403                           
+  2404                           	global	_ANS7
+  2405                           	global	_ANS7
+  2406  0000                     	_ANS7	set	0x48F	;byte address: 0x91
+  2407                           
+  2408                           	global	_BOD
+  2409                           	global	_BOD
+  2410  0000                     	_BOD	set	0x470	;byte address: 0x8E
+  2411                           
+  2412                           	global	_C1IE
+  2413                           	global	_C1IE
+  2414  0000                     	_C1IE	set	0x463	;byte address: 0x8C
+  2415                           
+  2416                           	global	_C1IF
+  2417                           	global	_C1IF
+  2418  0000                     	_C1IF	set	0x63	;byte address: 0xC
+  2419                           
+  2420                           	global	_C1INV
+  2421                           	global	_C1INV
+  2422  0000                     	_C1INV	set	0xCC	;byte address: 0x19
+  2423                           
+  2424                           	global	_C1OUT
+  2425                           	global	_C1OUT
+  2426  0000                     	_C1OUT	set	0xCE	;byte address: 0x19
+  2427                           
+  2428                           	global	_C2IE
+  2429                           	global	_C2IE
+  2430  0000                     	_C2IE	set	0x464	;byte address: 0x8C
+  2431                           
+  2432                           	global	_C2IF
+  2433                           	global	_C2IF
+  2434  0000                     	_C2IF	set	0x64	;byte address: 0xC
+  2435                           
+  2436                           	global	_C2INV
+  2437                           	global	_C2INV
+  2438  0000                     	_C2INV	set	0xCD	;byte address: 0x19
+  2439                           
+  2440                           	global	_C2OUT
+  2441                           	global	_C2OUT
+  2442  0000                     	_C2OUT	set	0xCF	;byte address: 0x19
+  2443                           
+  2444                           	global	_C2SYNC
+  2445                           	global	_C2SYNC
+  2446  0000                     	_C2SYNC	set	0xD0	;byte address: 0x1A
+  2447                           
+  2448                           	global	_CARRY
+  2449                           	global	_CARRY
+  2450  0000                     	_CARRY	set	0x18	;byte address: 0x3
+  2451                           
+  2452                           	global	_CCP1IE
+  2453                           	global	_CCP1IE
+  2454  0000                     	_CCP1IE	set	0x465	;byte address: 0x8C
+  2455                           
+  2456                           	global	_CCP1IF
+  2457                           	global	_CCP1IF
+  2458  0000                     	_CCP1IF	set	0x65	;byte address: 0xC
+  2459                           
+  2460                           	global	_CCP1M0
+  2461                           	global	_CCP1M0
+  2462  0000                     	_CCP1M0	set	0xA8	;byte address: 0x15
+  2463                           
+  2464                           	global	_CCP1M1
+  2465                           	global	_CCP1M1
+  2466  0000                     	_CCP1M1	set	0xA9	;byte address: 0x15
+  2467                           
+  2468                           	global	_CCP1M2
+  2469                           	global	_CCP1M2
+  2470  0000                     	_CCP1M2	set	0xAA	;byte address: 0x15
+  2471                           
+  2472                           	global	_CCP1M3
+  2473                           	global	_CCP1M3
+  2474  0000                     	_CCP1M3	set	0xAB	;byte address: 0x15
+  2475                           
+  2476                           	global	_CHS0
+  2477                           	global	_CHS0
+  2478  0000                     	_CHS0	set	0xFA	;byte address: 0x1F
+  2479                           
+  2480                           	global	_CHS1
+  2481                           	global	_CHS1
+  2482  0000                     	_CHS1	set	0xFB	;byte address: 0x1F
+  2483                           
+  2484                           	global	_CHS2
+  2485                           	global	_CHS2
+  2486  0000                     	_CHS2	set	0xFC	;byte address: 0x1F
+  2487                           
+  2488                           	global	_CIS
+  2489                           	global	_CIS
+  2490  0000                     	_CIS	set	0xCB	;byte address: 0x19
+  2491                           
+  2492                           	global	_CM0
+  2493                           	global	_CM0
+  2494  0000                     	_CM0	set	0xC8	;byte address: 0x19
+  2495                           
+  2496                           	global	_CM1
+  2497                           	global	_CM1
+  2498  0000                     	_CM1	set	0xC9	;byte address: 0x19
+  2499                           
+  2500                           	global	_CM2
+  2501                           	global	_CM2
+  2502  0000                     	_CM2	set	0xCA	;byte address: 0x19
+  2503                           
+  2504                           	global	_DC
+  2505                           	global	_DC
+  2506  0000                     	_DC	set	0x19	;byte address: 0x3
+  2507                           
+  2508                           	global	_DC1B0
+  2509                           	global	_DC1B0
+  2510  0000                     	_DC1B0	set	0xAC	;byte address: 0x15
+  2511                           
+  2512                           	global	_DC1B1
+  2513                           	global	_DC1B1
+  2514  0000                     	_DC1B1	set	0xAD	;byte address: 0x15
+  2515                           
+  2516                           	global	_ECCPAS0
+  2517                           	global	_ECCPAS0
+  2518  0000                     	_ECCPAS0	set	0xBC	;byte address: 0x17
+  2519                           
+  2520                           	global	_ECCPAS1
+  2521                           	global	_ECCPAS1
+  2522  0000                     	_ECCPAS1	set	0xBD	;byte address: 0x17
+  2523                           
+  2524                           	global	_ECCPAS2
+  2525                           	global	_ECCPAS2
+  2526  0000                     	_ECCPAS2	set	0xBE	;byte address: 0x17
+  2527                           
+  2528                           	global	_ECCPASE
+  2529                           	global	_ECCPASE
+  2530  0000                     	_ECCPASE	set	0xBF	;byte address: 0x17
+  2531                           
+  2532                           	global	_EEIE
+  2533                           	global	_EEIE
+  2534  0000                     	_EEIE	set	0x467	;byte address: 0x8C
+  2535                           
+  2536                           	global	_EEIF
+  2537                           	global	_EEIF
+  2538  0000                     	_EEIF	set	0x67	;byte address: 0xC
+  2539                           
+  2540                           	global	_GIE
+  2541  0000                     	_GIE	set	0x5F	;byte address: 0xB
+  2542                           
+  2543                           	global	_GODONE
+  2544  0000                     	_GODONE	set	0xF9	;byte address: 0x1F
+  2545                           
+  2546                           	global	_HTS
+  2547                           	global	_HTS
+  2548  0000                     	_HTS	set	0x47A	;byte address: 0x8F
+  2549                           
+  2550                           	global	_INTE
+  2551                           	global	_INTE
+  2552  0000                     	_INTE	set	0x5C	;byte address: 0xB
+  2553                           
+  2554                           	global	_INTEDG
+  2555                           	global	_INTEDG
+  2556  0000                     	_INTEDG	set	0x40E	;byte address: 0x81
+  2557                           
+  2558                           	global	_INTF
+  2559                           	global	_INTF
+  2560  0000                     	_INTF	set	0x59	;byte address: 0xB
+  2561                           
+  2562                           	global	_IOCA0
+  2563                           	global	_IOCA0
+  2564  0000                     	_IOCA0	set	0x4B0	;byte address: 0x96
+  2565                           
+  2566                           	global	_IOCA1
+  2567                           	global	_IOCA1
+  2568  0000                     	_IOCA1	set	0x4B1	;byte address: 0x96
+  2569                           
+  2570                           	global	_IOCA2
+  2571                           	global	_IOCA2
+  2572  0000                     	_IOCA2	set	0x4B2	;byte address: 0x96
+  2573                           
+  2574                           	global	_IOCA3
+  2575                           	global	_IOCA3
+  2576  0000                     	_IOCA3	set	0x4B3	;byte address: 0x96
+  2577                           
+  2578                           	global	_IOCA4
+  2579                           	global	_IOCA4
+  2580  0000                     	_IOCA4	set	0x4B4	;byte address: 0x96
+  2581                           
+  2582                           	global	_IOCA5
+  2583                           	global	_IOCA5
+  2584  0000                     	_IOCA5	set	0x4B5	;byte address: 0x96
+  2585                           
+  2586                           	global	_IRCF0
+  2587                           	global	_IRCF0
+  2588  0000                     	_IRCF0	set	0x47C	;byte address: 0x8F
+  2589                           
+  2590                           	global	_IRCF1
+  2591                           	global	_IRCF1
+  2592  0000                     	_IRCF1	set	0x47D	;byte address: 0x8F
+  2593                           
+  2594                           	global	_IRCF2
+  2595                           	global	_IRCF2
+  2596  0000                     	_IRCF2	set	0x47E	;byte address: 0x8F
+  2597                           
+  2598                           	global	_IRP
+  2599                           	global	_IRP
+  2600  0000                     	_IRP	set	0x1F	;byte address: 0x3
+  2601                           
+  2602                           	global	_LTS
+  2603                           	global	_LTS
+  2604  0000                     	_LTS	set	0x479	;byte address: 0x8F
+  2605                           
+  2606                           	global	_OSFIE
+  2607                           	global	_OSFIE
+  2608  0000                     	_OSFIE	set	0x462	;byte address: 0x8C
+  2609                           
+  2610                           	global	_OSFIF
+  2611                           	global	_OSFIF
+  2612  0000                     	_OSFIF	set	0x62	;byte address: 0xC
+  2613                           
+  2614                           	global	_OSTS
+  2615                           	global	_OSTS
+  2616  0000                     	_OSTS	set	0x47B	;byte address: 0x8F
+  2617                           
+  2618                           	global	_P1M0
+  2619                           	global	_P1M0
+  2620  0000                     	_P1M0	set	0xAE	;byte address: 0x15
+  2621                           
+  2622                           	global	_P1M1
+  2623                           	global	_P1M1
+  2624  0000                     	_P1M1	set	0xAF	;byte address: 0x15
+  2625                           
+  2626                           	global	_PD
+  2627                           	global	_PD
+  2628  0000                     	_PD	set	0x1B	;byte address: 0x3
+  2629                           
+  2630                           	global	_PDC0
+  2631                           	global	_PDC0
+  2632  0000                     	_PDC0	set	0xB0	;byte address: 0x16
+  2633                           
+  2634                           	global	_PDC1
+  2635                           	global	_PDC1
+  2636  0000                     	_PDC1	set	0xB1	;byte address: 0x16
+  2637                           
+  2638                           	global	_PDC2
+  2639                           	global	_PDC2
+  2640  0000                     	_PDC2	set	0xB2	;byte address: 0x16
+  2641                           
+  2642                           	global	_PDC3
+  2643                           	global	_PDC3
+  2644  0000                     	_PDC3	set	0xB3	;byte address: 0x16
+  2645                           
+  2646                           	global	_PDC4
+  2647                           	global	_PDC4
+  2648  0000                     	_PDC4	set	0xB4	;byte address: 0x16
+  2649                           
+  2650                           	global	_PDC5
+  2651                           	global	_PDC5
+  2652  0000                     	_PDC5	set	0xB5	;byte address: 0x16
+  2653                           
+  2654                           	global	_PDC6
+  2655                           	global	_PDC6
+  2656  0000                     	_PDC6	set	0xB6	;byte address: 0x16
+  2657                           
+  2658                           	global	_PEIE
+  2659  0000                     	_PEIE	set	0x5E	;byte address: 0xB
+  2660                           
+  2661                           	global	_POR
+  2662                           	global	_POR
+  2663  0000                     	_POR	set	0x471	;byte address: 0x8E
+  2664                           
+  2665                           	global	_PRSEN
+  2666                           	global	_PRSEN
+  2667  0000                     	_PRSEN	set	0xB7	;byte address: 0x16
+  2668                           
+  2669                           	global	_PS0
+  2670                           	global	_PS0
+  2671  0000                     	_PS0	set	0x408	;byte address: 0x81
+  2672                           
+  2673                           	global	_PS1
+  2674                           	global	_PS1
+  2675  0000                     	_PS1	set	0x409	;byte address: 0x81
+  2676                           
+  2677                           	global	_PS2
+  2678                           	global	_PS2
+  2679  0000                     	_PS2	set	0x40A	;byte address: 0x81
+  2680                           
+  2681                           	global	_PSA
+  2682                           	global	_PSA
+  2683  0000                     	_PSA	set	0x40B	;byte address: 0x81
+  2684                           
+  2685                           	global	_PSSAC0
+  2686                           	global	_PSSAC0
+  2687  0000                     	_PSSAC0	set	0xBA	;byte address: 0x17
+  2688                           
+  2689                           	global	_PSSAC1
+  2690                           	global	_PSSAC1
+  2691  0000                     	_PSSAC1	set	0xBB	;byte address: 0x17
+  2692                           
+  2693                           	global	_PSSBD0
+  2694                           	global	_PSSBD0
+  2695  0000                     	_PSSBD0	set	0xB8	;byte address: 0x17
+  2696                           
+  2697                           	global	_PSSBD1
+  2698                           	global	_PSSBD1
+  2699  0000                     	_PSSBD1	set	0xB9	;byte address: 0x17
+  2700                           
+  2701                           	global	_RA0
+  2702                           	global	_RA0
+  2703  0000                     	_RA0	set	0x28	;byte address: 0x5
+  2704                           
+  2705                           	global	_RA1
+  2706                           	global	_RA1
+  2707  0000                     	_RA1	set	0x29	;byte address: 0x5
+  2708                           
+  2709                           	global	_RA2
+  2710                           	global	_RA2
+  2711  0000                     	_RA2	set	0x2A	;byte address: 0x5
+  2712                           
+  2713                           	global	_RA3
+  2714                           	global	_RA3
+  2715  0000                     	_RA3	set	0x2B	;byte address: 0x5
+  2716                           
+  2717                           	global	_RA4
+  2718                           	global	_RA4
+  2719  0000                     	_RA4	set	0x2C	;byte address: 0x5
+  2720                           
+  2721                           	global	_RA5
+  2722                           	global	_RA5
+  2723  0000                     	_RA5	set	0x2D	;byte address: 0x5
+  2724                           
+  2725                           	global	_RAIE
+  2726                           	global	_RAIE
+  2727  0000                     	_RAIE	set	0x5B	;byte address: 0xB
+  2728                           
+  2729                           	global	_RAIF
+  2730                           	global	_RAIF
+  2731  0000                     	_RAIF	set	0x58	;byte address: 0xB
+  2732                           
+  2733                           	global	_RAPU
+  2734                           	global	_RAPU
+  2735  0000                     	_RAPU	set	0x40F	;byte address: 0x81
+  2736                           
+  2737                           	global	_RC0
+  2738                           	global	_RC0
+  2739  0000                     	_RC0	set	0x38	;byte address: 0x7
+  2740                           
+  2741                           	global	_RC1
+  2742                           	global	_RC1
+  2743  0000                     	_RC1	set	0x39	;byte address: 0x7
+  2744                           
+  2745                           	global	_RC2
+  2746                           	global	_RC2
+  2747  0000                     	_RC2	set	0x3A	;byte address: 0x7
+  2748                           
+  2749                           	global	_RC3
+  2750                           	global	_RC3
+  2751  0000                     	_RC3	set	0x3B	;byte address: 0x7
+  2752                           
+  2753                           	global	_RC4
+  2754                           	global	_RC4
+  2755  0000                     	_RC4	set	0x3C	;byte address: 0x7
+  2756                           
+  2757                           	global	_RC5
+  2758                           	global	_RC5
+  2759  0000                     	_RC5	set	0x3D	;byte address: 0x7
+  2760                           
+  2761                           	global	_RD
+  2762                           	global	_RD
+  2763  0000                     	_RD	set	0x4E0	;byte address: 0x9C
+  2764                           
+  2765                           	global	_RP0
+  2766                           	global	_RP0
+  2767  0000                     	_RP0	set	0x1D	;byte address: 0x3
+  2768                           
+  2769                           	global	_RP1
+  2770                           	global	_RP1
+  2771  0000                     	_RP1	set	0x1E	;byte address: 0x3
+  2772                           
+  2773                           	global	_SBODEN
+  2774                           	global	_SBODEN
+  2775  0000                     	_SBODEN	set	0x474	;byte address: 0x8E
+  2776                           
+  2777                           	global	_SCS
+  2778                           	global	_SCS
+  2779  0000                     	_SCS	set	0x478	;byte address: 0x8F
+  2780                           
+  2781                           	global	_SWDTEN
+  2782                           	global	_SWDTEN
+  2783  0000                     	_SWDTEN	set	0xC0	;byte address: 0x18
+  2784                           
+  2785                           	global	_T0CS
+  2786                           	global	_T0CS
+  2787  0000                     	_T0CS	set	0x40D	;byte address: 0x81
+  2788                           
+  2789                           	global	_T0IE
+  2790                           	global	_T0IE
+  2791  0000                     	_T0IE	set	0x5D	;byte address: 0xB
+  2792                           
+  2793                           	global	_T0IF
+  2794                           	global	_T0IF
+  2795  0000                     	_T0IF	set	0x5A	;byte address: 0xB
+  2796                           
+  2797                           	global	_T0SE
+  2798                           	global	_T0SE
+  2799  0000                     	_T0SE	set	0x40C	;byte address: 0x81
+  2800                           
+  2801                           	global	_T1CKPS0
+  2802                           	global	_T1CKPS0
+  2803  0000                     	_T1CKPS0	set	0x84	;byte address: 0x10
+  2804                           
+  2805                           	global	_T1CKPS1
+  2806                           	global	_T1CKPS1
+  2807  0000                     	_T1CKPS1	set	0x85	;byte address: 0x10
+  2808                           
+  2809                           	global	_T1GE
+  2810                           	global	_T1GE
+  2811  0000                     	_T1GE	set	0x86	;byte address: 0x10
+  2812                           
+  2813                           	global	_T1GINV
+  2814                           	global	_T1GINV
+  2815  0000                     	_T1GINV	set	0x87	;byte address: 0x10
+  2816                           
+  2817                           	global	_T1GSS
+  2818                           	global	_T1GSS
+  2819  0000                     	_T1GSS	set	0xD1	;byte address: 0x1A
+  2820                           
+  2821                           	global	_T1OSCEN
+  2822                           	global	_T1OSCEN
+  2823  0000                     	_T1OSCEN	set	0x83	;byte address: 0x10
+  2824                           
+  2825                           	global	_T1SYNC
+  2826                           	global	_T1SYNC
+  2827  0000                     	_T1SYNC	set	0x82	;byte address: 0x10
+  2828                           
+  2829                           	global	_T2CKPS0
+  2830                           	global	_T2CKPS0
+  2831  0000                     	_T2CKPS0	set	0x90	;byte address: 0x12
+  2832                           
+  2833                           	global	_T2CKPS1
+  2834                           	global	_T2CKPS1
+  2835  0000                     	_T2CKPS1	set	0x91	;byte address: 0x12
+  2836                           
+  2837                           	global	_TMR1CS
+  2838                           	global	_TMR1CS
+  2839  0000                     	_TMR1CS	set	0x81	;byte address: 0x10
+  2840                           
+  2841                           	global	_TMR1IE
+  2842  0000                     	_TMR1IE	set	0x460	;byte address: 0x8C
+  2843                           
+  2844                           	global	_TMR1IF
+  2845  0000                     	_TMR1IF	set	0x60	;byte address: 0xC
+  2846                           
+  2847                           	global	_TMR1ON
+  2848                           	global	_TMR1ON
+  2849  0000                     	_TMR1ON	set	0x80	;byte address: 0x10
+  2850                           
+  2851                           	global	_TMR2IE
+  2852                           	global	_TMR2IE
+  2853  0000                     	_TMR2IE	set	0x461	;byte address: 0x8C
+  2854                           
+  2855                           	global	_TMR2IF
+  2856                           	global	_TMR2IF
+  2857  0000                     	_TMR2IF	set	0x61	;byte address: 0xC
+  2858                           
+  2859                           	global	_TMR2ON
+  2860                           	global	_TMR2ON
+  2861  0000                     	_TMR2ON	set	0x92	;byte address: 0x12
+  2862                           
+  2863                           	global	_TO
+  2864                           	global	_TO
+  2865  0000                     	_TO	set	0x1C	;byte address: 0x3
+  2866                           
+  2867                           	global	_TOUTPS0
+  2868                           	global	_TOUTPS0
+  2869  0000                     	_TOUTPS0	set	0x93	;byte address: 0x12
+  2870                           
+  2871                           	global	_TOUTPS1
+  2872                           	global	_TOUTPS1
+  2873  0000                     	_TOUTPS1	set	0x94	;byte address: 0x12
+  2874                           
+  2875                           	global	_TOUTPS2
+  2876                           	global	_TOUTPS2
+  2877  0000                     	_TOUTPS2	set	0x95	;byte address: 0x12
+  2878                           
+  2879                           	global	_TOUTPS3
+  2880                           	global	_TOUTPS3
+  2881  0000                     	_TOUTPS3	set	0x96	;byte address: 0x12
+  2882                           
+  2883                           	global	_TRISA0
+  2884                           	global	_TRISA0
+  2885  0000                     	_TRISA0	set	0x428	;byte address: 0x85
+  2886                           
+  2887                           	global	_TRISA1
+  2888                           	global	_TRISA1
+  2889  0000                     	_TRISA1	set	0x429	;byte address: 0x85
+  2890                           
+  2891                           	global	_TRISA2
+  2892                           	global	_TRISA2
+  2893  0000                     	_TRISA2	set	0x42A	;byte address: 0x85
+  2894                           
+  2895                           	global	_TRISA3
+  2896                           	global	_TRISA3
+  2897  0000                     	_TRISA3	set	0x42B	;byte address: 0x85
+  2898                           
+  2899                           	global	_TRISA4
+  2900                           	global	_TRISA4
+  2901  0000                     	_TRISA4	set	0x42C	;byte address: 0x85
+  2902                           
+  2903                           	global	_TRISA5
+  2904                           	global	_TRISA5
+  2905  0000                     	_TRISA5	set	0x42D	;byte address: 0x85
+  2906                           
+  2907                           	global	_TRISC0
+  2908                           	global	_TRISC0
+  2909  0000                     	_TRISC0	set	0x438	;byte address: 0x87
+  2910                           
+  2911                           	global	_TRISC1
+  2912                           	global	_TRISC1
+  2913  0000                     	_TRISC1	set	0x439	;byte address: 0x87
+  2914                           
+  2915                           	global	_TRISC2
+  2916                           	global	_TRISC2
+  2917  0000                     	_TRISC2	set	0x43A	;byte address: 0x87
+  2918                           
+  2919                           	global	_TRISC3
+  2920                           	global	_TRISC3
+  2921  0000                     	_TRISC3	set	0x43B	;byte address: 0x87
+  2922                           
+  2923                           	global	_TRISC4
+  2924                           	global	_TRISC4
+  2925  0000                     	_TRISC4	set	0x43C	;byte address: 0x87
+  2926                           
+  2927                           	global	_TRISC5
+  2928                           	global	_TRISC5
+  2929  0000                     	_TRISC5	set	0x43D	;byte address: 0x87
+  2930                           
+  2931                           	global	_TUN0
+  2932                           	global	_TUN0
+  2933  0000                     	_TUN0	set	0x480	;byte address: 0x90
+  2934                           
+  2935                           	global	_TUN1
+  2936                           	global	_TUN1
+  2937  0000                     	_TUN1	set	0x481	;byte address: 0x90
+  2938                           
+  2939                           	global	_TUN2
+  2940                           	global	_TUN2
+  2941  0000                     	_TUN2	set	0x482	;byte address: 0x90
+  2942                           
+  2943                           	global	_TUN3
+  2944                           	global	_TUN3
+  2945  0000                     	_TUN3	set	0x483	;byte address: 0x90
+  2946                           
+  2947                           	global	_TUN4
+  2948                           	global	_TUN4
+  2949  0000                     	_TUN4	set	0x484	;byte address: 0x90
+  2950                           
+  2951                           	global	_ULPWUE
+  2952                           	global	_ULPWUE
+  2953  0000                     	_ULPWUE	set	0x475	;byte address: 0x8E
+  2954                           
+  2955                           	global	_VCFG
+  2956                           	global	_VCFG
+  2957  0000                     	_VCFG	set	0xFE	;byte address: 0x1F
+  2958                           
+  2959                           	global	_VR0
+  2960                           	global	_VR0
+  2961  0000                     	_VR0	set	0x4C8	;byte address: 0x99
+  2962                           
+  2963                           	global	_VR1
+  2964                           	global	_VR1
+  2965  0000                     	_VR1	set	0x4C9	;byte address: 0x99
+  2966                           
+  2967                           	global	_VR2
+  2968                           	global	_VR2
+  2969  0000                     	_VR2	set	0x4CA	;byte address: 0x99
+  2970                           
+  2971                           	global	_VR3
+  2972                           	global	_VR3
+  2973  0000                     	_VR3	set	0x4CB	;byte address: 0x99
+  2974                           
+  2975                           	global	_VREN
+  2976                           	global	_VREN
+  2977  0000                     	_VREN	set	0x4CF	;byte address: 0x99
+  2978                           
+  2979                           	global	_VRR
+  2980                           	global	_VRR
+  2981  0000                     	_VRR	set	0x4CD	;byte address: 0x99
+  2982                           
+  2983                           	global	_WDTPS0
+  2984                           	global	_WDTPS0
+  2985  0000                     	_WDTPS0	set	0xC1	;byte address: 0x18
+  2986                           
+  2987                           	global	_WDTPS1
+  2988                           	global	_WDTPS1
+  2989  0000                     	_WDTPS1	set	0xC2	;byte address: 0x18
+  2990                           
+  2991                           	global	_WDTPS2
+  2992                           	global	_WDTPS2
+  2993  0000                     	_WDTPS2	set	0xC3	;byte address: 0x18
+  2994                           
+  2995                           	global	_WDTPS3
+  2996                           	global	_WDTPS3
+  2997  0000                     	_WDTPS3	set	0xC4	;byte address: 0x18
+  2998                           
+  2999                           	global	_WPUA0
+  3000                           	global	_WPUA0
+  3001  0000                     	_WPUA0	set	0x4A8	;byte address: 0x95
+  3002                           
+  3003                           	global	_WPUA1
+  3004                           	global	_WPUA1
+  3005  0000                     	_WPUA1	set	0x4A9	;byte address: 0x95
+  3006                           
+  3007                           	global	_WPUA2
+  3008                           	global	_WPUA2
+  3009  0000                     	_WPUA2	set	0x4AA	;byte address: 0x95
+  3010                           
+  3011                           	global	_WPUA4
+  3012                           	global	_WPUA4
+  3013  0000                     	_WPUA4	set	0x4AC	;byte address: 0x95
+  3014                           
+  3015                           	global	_WPUA5
+  3016                           	global	_WPUA5
+  3017  0000                     	_WPUA5	set	0x4AD	;byte address: 0x95
+  3018                           
+  3019                           	global	_WR
+  3020                           	global	_WR
+  3021  0000                     	_WR	set	0x4E1	;byte address: 0x9C
+  3022                           
+  3023                           	global	_WREN
+  3024                           	global	_WREN
+  3025  0000                     	_WREN	set	0x4E2	;byte address: 0x9C
+  3026                           
+  3027                           	global	_WRERR
+  3028                           	global	_WRERR
+  3029  0000                     	_WRERR	set	0x4E3	;byte address: 0x9C
+  3030                           
+  3031                           	global	_ZERO
+  3032                           	global	_ZERO
+  3033  0000                     	_ZERO	set	0x1A	;byte address: 0x3
+  3034                           
+  3035                           	PSECT	fnauto0,class=BANK0,space=1
+  3036                           	FNCONF	fnauto0,??,?
+  3037                           
+  3038                           	DABS	1,126,2	;btemp
+  3039                           	global	btemp
+  3040  0000                     	btemp set 07Eh
+  3041                           apbank macro
+  3042                           	bcf	status,5
+  3043                           	bcf	status,6
+  3044  0020                     	endm
+
+
+HI-TECH Software PICC Macro Assembler V9.60PL5 build 3884 
+Symbol Table                                          Sun Nov 02 19:27:51 2014
+
+                  ??_Read_Adc 0023                      __Lrbss_0 0064  
+                           l1 0223                             l2 0185  
+                           l3 017F                             l5 0183  
+                           l6 0237                             l7 0232  
+                           l8 0234                             l9 020F  
+                   __Lrdata_0 0062                     __Lramdata 0062  
+                          l10 0207                            l11 020C  
+                          l12 0249                            l20 01DB  
+                          l13 023F                            l21 026E  
+                          l14 0249                            l22 0265  
+                          l30 00EC                            _DC 0019  
+                          l23 0270                            l31 0078  
+                          l16 0243                            l24 026B  
+                          l40 00DD                            l32 0083  
+                          l17 01A5                            l41 00E6  
+                          l33 0083                            l18 01DE  
+                          l50 012D                            l42 00EE  
+                          l34 0097                            l26 00EE  
+                          l43 0165                            l19 01D8  
+                          l51 0254                            l35 00A5  
+                          l27 0046                            l52 025F  
+                          l44 013F                            l36 00A5  
+                          l45 0165                            l29 00EE  
+                          l37 00B2                            l38 00E6  
+                          l47 01C2                            l39 00CD  
+                          l48 0132                            l49 012D  
+                          _PD 001B                            _RD 04E0  
+                          _TO 001C                            _WR 04E1  
+                ??_init_DigIO 0021                            fsr 0004  
+               ??_Read_Adc_E0 0021                 ??_Read_Adc_E1 0021  
+                         _CM0 00C8                           _CM1 00C9  
+                         _CM2 00CA                           _BOD 0470  
+                         _CIS 00CB                           _GIE 005F  
+                         _RA0 0028                           _RA1 0029  
+                         _RA2 002A                           _RA3 002B  
+                         _RC0 0038                           _RA4 002C  
+                         _RC1 0039                           _RA5 002D  
+                         _RC2 003A                           _RC3 003B  
+                         _RC4 003C                           _RC5 003D  
+                         _FSR 0004                           _PCL 0002  
+                         _PS0 0408                           _PR2 0092  
+                         _PS1 0409                           _RP0 001D  
+                         _PS2 040A                           _IRP 001F  
+                         _RP1 001E                           _HTS 047A  
+                         _SCS 0478                           _PSA 040B  
+                         _LTS 0479                           _VR0 04C8  
+                         _VR1 04C9                           _VR2 04CA  
+                         _VR3 04CB                           _POR 0471  
+                         _VRR 04CD           _Read_Adc_E0_ret_val 0022  
+                         _isr 01DF                           indf 0000  
+                ??_init_timer 0021           _Read_Adc_E1_ret_val 0022  
+            _Read_Adc_E0_temp 0021              _Read_Adc_E1_temp 0021  
+                    _alarm_on 026C                    _TimerState 0064  
+                  _TimerStart 0071                     ?_alarm_on 0021  
+                        _C1IE 0463                          _C1IF 0063  
+                        _C2IE 0464                          _C2IF 0064  
+                        _ADIE 0466                          _ADIF 0066  
+                        _ADFM 00FF                          ?_isr 002A  
+                    __tempreg 0020                          _ADON 00F8  
+                        _P1M0 00AE                          _CHS0 00FA  
+                        _P1M1 00AF                          _CHS1 00FB  
+                        _CHS2 00FC                          _EEIE 0467  
+                        _EEIF 0067                          _ANS0 0488  
+                        _ANS1 0489                          _ANS2 048A  
+                        _ANS3 048B                          _ANS4 048C  
+                        _ANS5 048D                          _ANS6 048E  
+                        _ANS7 048F                          _T1GE 0086  
+                        _T0IE 005D                          _T0IF 005A  
+                        _T0CS 040D                          _PDC0 00B0  
+                        _PDC1 00B1                          _PDC2 00B2  
+                        _PDC3 00B3                          _PDC4 00B4  
+                        _T0SE 040C                          _PDC5 00B5  
+                        _IOCA 0096                          _PDC6 00B6  
+                        u1500 007F                          u1501 007E  
+                        _INDF 0000                          u1510 008A  
+                        u1511 0089                          u1600 00E3  
+                        u1520 0090                          u1601 00E2  
+                        u1521 008F                          u1610 022E  
+                        u1530 009E                          u1611 022D  
+                        u1531 009D                          u1700 0249  
+                        u1620 0203                          u1540 00B0  
+                        u1460 004D                          u1701 0248  
+                        u1621 0202                          u1541 00AF  
+                        u1461 004C                          u1630 00FE  
+                        u1550 00B7                          u1470 005A  
+                        u1631 00FD                          u1471 0059  
+                        u1640 0126                          u1560 00C1  
+                        u1480 0065                          u1641 0125  
+                        u1561 00C0                          u1481 0064  
+                        u1650 01D2                          u1570 00C7  
+                        u1490 006B                          u1571 00C6  
+                        u1491 006A                          u1580 00D4  
+                        u1645 0122                          u1581 00D3  
+                        u1670 0165                          u1590 00DB  
+                        _PIE1 008C                          u1671 0164  
+                        u1591 00DA                          u1690 0183  
+                        u1691 0182                          u1685 0170  
+                        _RAIE 005B                          _PEIE 005E  
+                        _RAIF 0058                          _INTE 005C  
+                        _INTF 0059                          i1l53 01EE  
+                        i1l54 01E9                          _PCON 008E  
+                        _PIR1 000C                          _RAPU 040F  
+                        _VCFG 00FE                          _TMR0 0001  
+                        _TMR2 0011                     __databank 0000  
+                        _OSTS 047B                          _TUN0 0480  
+                        _TUN1 0481                          _TUN2 0482  
+                        _TUN3 0483                          _TUN4 0484  
+                        _VREN 04CF                          _ZERO 001A  
+                        _WREN 04E2                          _WPUA 0095  
+                   _adc_delay 0238             __end_of_adc_delay 024A  
+                  ??_alarm_on 0021                          _main 0037  
+                        btemp 007E                    ?_adc_delay 0026  
+                    _init_adc 0210                          start 000F  
+              ??_init_SWTimer 0021                _Ref1ms_counter 0079  
+                   ?_init_adc 0021              _Read_Adc_Channel 0023  
+           interrupt_function 0004                    ??_init_adc 0021  
+                 ??_adc_delay 0026                     _alarm_off 0260  
+      _GetTimer_State_TimerID 0021             __end_of_alarm_off 0266  
+                       ??_isr 002A                       _CCP1CON 0015  
+                  _Stop_Timer 024A                       _ECCPAS0 00BC  
+                     _ECCPAS1 00BD                       _ECCPAS2 00BE  
+                  ?_alarm_off 0021                       _ECCPASE 00BF  
+          __end_of_Stop_Timer 0255                         _C1INV 00CC  
+                       _DC1B0 00AC                         _DC1B1 00AD  
+                       _C2INV 00CD                         _C1OUT 00CE  
+                       _C2OUT 00CF                         _ADCS0 04FC  
+                       _ADCS1 04FD                         _ADCS2 04FE  
+                       ?_main 0020                         _EEADR 009B  
+                       _EEDAT 009A                         _CARRY 0018  
+                       _ANSEL 0091                         _T1CON 0010  
+                       _IOCA0 04B0                         _IOCA1 04B1  
+                       _IOCA2 04B2                         _T2CON 0012  
+                       _IOCA3 04B3                         _IOCA4 04B4  
+                       _IOCA5 04B5        _Start_Timer_TimeoutVal 0021  
+                       _T1GSS 00D1                       _T1CKPS0 0084  
+                     _T1CKPS1 0085                         _IRCF0 047C  
+                       _IRCF1 047D                         _IRCF2 047E  
+                     _T2CKPS0 0090                       _T2CKPS1 0091  
+                   _heater_on 026F             __end_of_heater_on 0271  
+                       _OSFIE 0462                         _OSFIF 0062  
+                       _TMR1H 000F                         _TMR1L 000E  
+                       _PORTA 0005                       _T1OSCEN 0083  
+                       _PORTC 0007                         _PRSEN 00B7  
+                       _TRISA 0085                         _TRISC 0087  
+                       _VRCON 0099                         _WPUA0 04A8  
+                       _WPUA1 04A9                         _WPUA2 04AA  
+                       _WPUA4 04AC                         _WPUA5 04AD  
+                       _WRERR 04E3                  _Switch_State 007C  
+_read_pressure_switch_ret_val 0021                   ?_Stop_Timer 0021  
+                  ?_heater_on 0021                   ??_alarm_off 0021  
+                     _OSCTUNE 0090                       _PWM1CON 0016  
+        _read_pressure_switch 01C3                       _TOUTPS0 0093  
+                     _TOUTPS1 0094                       _TOUTPS2 0095  
+                     _TOUTPS3 0096                         pclath 000A  
+                 ??_heater_on 0021         ?_read_pressure_switch 0021  
+                    intlevel1 0004                _GetTimer_State 00F2  
+                       status 0003               _TimerTimeOutVal 0068  
+            __end_of_Read_Adc 0186               ?_GetTimer_State 0021  
+                _init_SWTimer 0133        ??_read_pressure_switch 0021  
+                 _Start_Timer 01A6                  ??_Stop_Timer 0021  
+            ??_GetTimer_State 0021            _Stop_Timer_TimerID 0021  
+        __end_of_init_SWTimer 0166           __end_of_Start_Timer 01C3  
+                      ??_main 0020        __end_of_GetTimer_State 0133  
+                ?_Start_Timer 0021  __end_of_read_pressure_switch 01DF  
+            __end_of_alarm_on 026F                        _C2SYNC 00D0  
+                      _ADCON0 001F                        _ADCON1 009F  
+                      _CCP1M0 00A8                        _CCP1M1 00A9  
+                      _CCP1M2 00AA                        _CCP1M3 00AB  
+                      _CCP1IE 0465                        _CCP1IF 0065  
+                      _ADRESH 001E                        _ADRESL 009E  
+                      _EEADRL 009B                        _EEDATA 009A  
+                      _ECCPAS 0017                        _CCPR1H 0014  
+                      _CCPR1L 0013                        _EECON1 009C  
+                      _EECON2 009D                        _CMCON0 0019  
+                      _CMCON1 001A                  __end_of_main 00F0  
+                      _T1GINV 0087                        _GODONE 00F9  
+                  _heater_off 0266                        _T1SYNC 0082  
+                      _INTEDG 040E                        _PCLATH 000A  
+                      _INTCON 000B                        i1u1200 01E3  
+                      i1u1201 01E2                        _SBODEN 0474  
+          __end_of_heater_off 026C                   _Read_Adc_E0 0224  
+                 _Read_Adc_E1 01F9                        _OSCCON 008F  
+                      _TMR1IE 0460                        _TMR1IF 0060  
+                      _TMR1CS 0081                        _TMR2IE 0461  
+                      _TMR2IF 0061                        _PSSAC0 00BA  
+                      _PSSAC1 00BB                        _PSSBD0 00B8  
+                      _PSSBD1 00B9                        _TMR1ON 0080  
+                      _OPTION 0081                        _TMR2ON 0092  
+                      _WDTCON 0018                        _WDTPS0 00C1  
+                      _WDTPS1 00C2                        _WDTPS2 00C3  
+                      _WDTPS3 00C4                        _TRISA0 0428  
+                      _TRISA1 0429                        _TRISA2 042A  
+                      _TRISA3 042B                        _TRISC0 0438  
+                      _TRISA4 042C                        _TRISC1 0439  
+                      _TRISA5 042D                        _TRISC2 043A  
+                      _TRISC3 043B                        _TRISC4 043C  
+                      _TRISC5 043D                        _STATUS 0003  
+                      _SWDTEN 00C0                        _ULPWUE 0475  
+         __end_of_Read_Adc_E0 0238           __end_of_Read_Adc_E1 0210  
+               ?_init_SWTimer 0021                   _adc_delay_x 0026  
+                 _adc_delay_y 0027              __end_of_init_adc 0224  
+                 ?_heater_off 0021              _Switch_PrevState 007D  
+             _pressuresw_Flag 007B                  ?_Read_Adc_E0 0021  
+                ?_Read_Adc_E1 0021          _Start_Timer_Timer_ID 0023  
+                 __end_of_isr 01F9         _WaterSensed_PrevState 0062  
+                  _init_DigIO 0186             _WaterSensed_State 0063  
+          __end_of_init_DigIO 01A6                  ??_heater_off 0021  
+               ??_Start_Timer 0023                        saved_w 007F  
+                  _init_timer 0255                   ?_init_DigIO 0021  
+          __end_of_init_timer 0260          _init_SWTimer_counter 0021  
+                    _Read_Adc 0166                     ?_Read_Adc 0023  
+                 ?_init_timer 0021                      __Hcommon 007E  
+                   __Hrdata_0 0064                     __Hramdata 0064  
+                    __Hrbss_0 0070                      __Lcommon 0071  

@@ -1,0 +1,629 @@
+HI-TECH Software C Compiler 
+
+Linker command line:
+
+--edf=C:\Program Files\HI-TECH Software\PICC\PRO\9.60\dat\en_msgs.txt -cs \
+  -h+Test.sym -z -Q16F628A -ol.obj -MTest.map -E1 -ACODE=00h-07FFh \
+  -ACONST=00h-0FFhx8 -AENTRY=00h-0FFhx8 -ASTRING=00h-0FFhx8 \
+  -ARAM=020h-06Fh,0A0h-0EFh,0120h-014Fh \
+  -AABS1=020h-07Fh,0A0h-0EFh,0120h-014Fh -ABANK0=020h-07Fh \
+  -ABANK1=0A0h-0EFh -ABANK2=0120h-014Fh -ACOMMON=070h-07Fh \
+  -preset_vec=00h,intentry=04h,intcode,intret,init,init23,end_init,clrtext,maintext,pstrings \
+  -pstrings=CODE -ppowerup=CODE -ptemp=-COMMON -pcommon=-COMMON \
+  -prbss_0=BANK0,rbit_0=BANK0,rdata_0=BANK0,idata_0=CODE -pnvram=BANK0 \
+  -prbss_1=BANK1,rbit_1=BANK1,rdata_1=BANK1,idata_1=CODE \
+  -pnvram_1=BANK1,nvbit_1=BANK1 \
+  -prbss_2=BANK2,rbit_2=BANK2,rdata_2=BANK2,idata_2=CODE \
+  -pnvram_2=BANK2,nvbit_2=BANK2 -pidata=CODE -pfnautoc=COMMON \
+  -pfnauto0=BANK0 -pfnauto1=BANK1 -pfnauto2=BANK2 -ACONFIG=02007h-02007h \
+  -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 \
+  -AEEDATA=00h-07Fh/02100h -peeprom_data=EEDATA -DEEDATA=2 \
+  -pfloat_text0=CODE,float_text1=CODE,float_text2=CODE \
+  -pfloat_text3=CODE,float_text4=CODE -DCODE=2 startup.obj Test.obj 
+
+Object code version is 3.10
+
+Machine type is 16F628A
+
+Call graph: (short form)
+
+
+                Name          Link     Load   Length Selector Space Scale
+startup.obj     clrtext         30       30        8       8     0
+                end_init        2E       2E        2       8     0
+                init            10       10       1E       8     0
+                reset_vec        0        0        1       0     0
+Test.obj        intentry         4        4        C       8     0
+                idata          117      117       2F       2     0
+                maintext        38       38       22       8     0
+                strings        100      100       17       2     0
+                config        2007     2007        1    400E     0
+                text238        3AF      3AF       2B       2     0
+                text237        497      497        6       2     0
+                text240        4A6      4A6        4       2     0
+                text239        489      489        7       2     0
+                text234        490      490        7       2     0
+                text233        4A2      4A2        4       2     0
+                text236        4AA      4AA        2       2     0
+                text235        25A      25A       44       2     0
+                text241        49D      49D        5       2     0
+                intrtext       41D      41D       1A       2     0
+                text232        351      351       32       2     0
+                text220        29E      29E       42       2     0
+                text219        3DA      3DA       26       2     0
+                text222        45F      45F        D       2     0
+                text221        146      146       C1       2     0
+                text218        400      400       1D       2     0
+                text223        46C      46C        D       2     0
+                text229        2E0      2E0       3D       2     0
+                text228        383      383       2C       2     0
+                text231        437      437       1A       2     0
+                text230        207      207       53       2     0
+                text225        479      479        9       2     0
+                text224        31D      31D       34       2     0
+                text227        482      482        7       2     0
+                text226        451      451        E       2     0
+
+COMMON          fnauto0         53       53       1B      53     1
+
+TOTAL           Name          Link     Load   Length  Space
+        CLASS   CODE           
+                intentry         4        4        C     0
+                idata          117      117       2F     0
+                maintext        38       38       22     0
+                clrtext         30       30        8     0
+                strings        100      100       17     0
+                end_init        2E       2E        2     0
+                init            10       10       1E     0
+                reset_vec        0        0        1     0
+                text238        3AF      3AF       2B     0
+                text237        497      497        6     0
+                text240        4A6      4A6        4     0
+                text239        489      489        7     0
+                text234        490      490        7     0
+                text233        4A2      4A2        4     0
+                text236        4AA      4AA        2     0
+                text235        25A      25A       44     0
+                text241        49D      49D        5     0
+                intrtext       41D      41D       1A     0
+                text232        351      351       32     0
+                text220        29E      29E       42     0
+                text219        3DA      3DA       26     0
+                text222        45F      45F        D     0
+                text221        146      146       C1     0
+                text218        400      400       1D     0
+                text223        46C      46C        D     0
+                text229        2E0      2E0       3D     0
+                text228        383      383       2C     0
+                text231        437      437       1A     0
+                text230        207      207       53     0
+                text225        479      479        9     0
+                text224        31D      31D       34     0
+                text227        482      482        7     0
+                text226        451      451        E     0
+
+        CLASS   CONST          
+
+        CLASS   ENTRY          
+
+        CLASS   STRING         
+
+        CLASS   RAM            
+
+        CLASS   ABS1           
+                abs_s1          2F       2F       24     1
+                abs_s1          75       75        B     1
+                abs_s1          C1       C1       2F     1
+
+        CLASS   BANK0          
+                fnauto0         53       53       1B     1
+
+        CLASS   BANK1          
+
+        CLASS   BANK2          
+
+        CLASS   COMMON         
+
+        CLASS   CONFIG         
+                config        2007     2007        1     0
+
+        CLASS   IDLOC          
+
+        CLASS   EEDATA         
+
+        CLASS   BANK3          
+
+
+
+SEGMENTS        Name           Load    Length   Top     Selector    Space Class Delta
+
+                reset_vec       000000  000001  000001         0       0  CODE        2
+                intentry        000004  000056  00005A         8       0  CODE        2
+                fnauto0         000053  00001B  00006E        53       1  BANK0       1
+                strings         000100  0003AC  0004AC         2       0  CODE        2
+                config          002007  000001  002008      400E       0  CONFIG      2
+
+
+UNUSED ADDRESS RANGES
+
+        BANK0            0020-002E     1
+                         006E-0074
+        BANK1            00A0-00C0     1
+        BANK2            0120-014F     1
+        CODE             0001-0003     2
+                         005A-00FF
+                         04AC-07FF
+        COMMON           0070-0074     1
+        CONST            0002-0007     1
+                         00B4-01FF
+        EEDATA           2100-217F     2
+        ENTRY            0002-0007     1
+                         00B4-01FF
+        IDLOC            2000-2003     2
+        RAM              00B4-00EF     1
+                         0120-014F
+        STRING           0002-0007     1
+                         00B4-01FF
+
+                                  Symbol Table
+
+??_CC2500_Init                        fnauto0     0053
+??_CC2500_ReadReg                     fnauto0     005C
+??_CC2500_WriteReg                    fnauto0     0059
+??_Delay_ms                           fnauto0     0066
+??_GetTimer_State                     fnauto0     0053
+??_RF_Module_Rxchar                   fnauto0     0053
+??_RF_Module_Txchar                   fnauto0     005A
+??_RF_Module_init                     fnauto0     0055
+??_SPI_MISO_READ                      fnauto0     0064
+??_SPI_MOSI_SETHIGH                   fnauto0     0064
+??_SPI_MOSI_SETLOW                    fnauto0     0064
+??_SPI_SCK_SETHIGH                    fnauto0     0064
+??_SPI_SCK_SETLOW                     fnauto0     0064
+??_SPI_SS_Disable                     fnauto0     0060
+??_SPI_SS_Enable                      fnauto0     0060
+??_Start_Timer                        fnauto0     0055
+??_TX_LED_Toggle                      fnauto0     0059
+??_command                            fnauto0     005E
+??_init_DigIO                         fnauto0     0053
+??_init_SWTimer                       fnauto0     0053
+??_init_spi                           fnauto0     0053
+??_init_timer                         fnauto0     0053
+??_isr                                fnauto0     006A
+??_main                               fnauto0     0053
+??_read_switchs                       fnauto0     0059
+??_spi_TxByte                         fnauto0     0060
+?_CC2500_Init                         fnauto0     0053
+?_CC2500_ReadReg                      fnauto0     005C
+?_CC2500_WriteReg                     fnauto0     0058
+?_Delay_ms                            fnauto0     0064
+?_GetTimer_State                      fnauto0     0053
+?_RF_Module_Rxchar                    fnauto0     0053
+?_RF_Module_Txchar                    fnauto0     0059
+?_RF_Module_init                      fnauto0     0055
+?_SPI_MISO_READ                       fnauto0     0064
+?_SPI_MOSI_SETHIGH                    fnauto0     0064
+?_SPI_MOSI_SETLOW                     fnauto0     0064
+?_SPI_SCK_SETHIGH                     fnauto0     0064
+?_SPI_SCK_SETLOW                      fnauto0     0064
+?_SPI_SS_Disable                      fnauto0     0060
+?_SPI_SS_Enable                       fnauto0     0060
+?_Start_Timer                         fnauto0     0053
+?_TX_LED_Toggle                       fnauto0     0059
+?_command                             fnauto0     005E
+?_init_DigIO                          fnauto0     0053
+?_init_SWTimer                        fnauto0     0053
+?_init_spi                            fnauto0     0053
+?_init_timer                          fnauto0     0053
+?_isr                                 fnauto0     006A
+?_main                                fnauto0     0053
+?_read_switchs                        fnauto0     0059
+?_spi_TxByte                          fnauto0     0060
+_ADEN                                 (abs)       00C3
+_BOR                                  (abs)       0470
+_BRGH                                 (abs)       04C2
+_C1INV                                (abs)       00FC
+_C1OUT                                (abs)       00FE
+_C2INV                                (abs)       00FD
+_C2OUT                                (abs)       00FF
+_CARRY                                (abs)       0018
+_CC2500_Init                          text219     03DA
+_CC2500_Init_i                        fnauto0     0053
+_CC2500_ReadReg                       text232     0351
+_CC2500_ReadReg_addr                  fnauto0     005C
+_CC2500_ReadReg_value                 fnauto0     005D
+_CC2500_WriteReg                      text230     0207
+_CC2500_WriteReg_addr                 fnauto0     005A
+_CC2500_WriteReg_i                    fnauto0     0059
+_CC2500_WriteReg_value                fnauto0     0058
+_CCP1CON                              (abs)       0017
+_CCP1IE                               (abs)       0462
+_CCP1IF                               (abs)       0062
+_CCP1M0                               (abs)       00B8
+_CCP1M1                               (abs)       00B9
+_CCP1M2                               (abs)       00BA
+_CCP1M3                               (abs)       00BB
+_CCP1X                                (abs)       00BD
+_CCP1Y                                (abs)       00BC
+_CCPR1H                               (abs)       0016
+_CCPR1L                               (abs)       0015
+_CC_rfSettings                        (abs)       00C1
+_CIS                                  (abs)       00FB
+_CM0                                  (abs)       00F8
+_CM1                                  (abs)       00F9
+_CM2                                  (abs)       00FA
+_CMCON                                (abs)       001F
+_CMIE                                 (abs)       0466
+_CMIF                                 (abs)       0066
+_CREN                                 (abs)       00C4
+_CSRC                                 (abs)       04C7
+_DC                                   (abs)       0019
+_Delay_ms                             text238     03AF
+_Delay_ms_delayms                     fnauto0     0064
+_Delay_ms_x                           fnauto0     0066
+_Delay_ms_y                           fnauto0     0068
+_EEADR                                (abs)       009B
+_EECON1                               (abs)       009C
+_EECON2                               (abs)       009D
+_EEDATA                               (abs)       009A
+_EEIE                                 (abs)       0467
+_EEIF                                 (abs)       0067
+_FERR                                 (abs)       00C2
+_FSR                                  (abs)       0004
+_GIE                                  (abs)       005F
+_GetTimer_State                       text220     029E
+_GetTimer_State_TimerID               fnauto0     0053
+_INDF                                 (abs)       0000
+_INTCON                               (abs)       000B
+_INTE                                 (abs)       005C
+_INTEDG                               (abs)       040E
+_INTF                                 (abs)       0059
+_IRP                                  (abs)       001F
+_OERR                                 (abs)       00C1
+_OPTION                               (abs)       0081
+_OSCF                                 (abs)       0473
+_PCL                                  (abs)       0002
+_PCLATH                               (abs)       000A
+_PCON                                 (abs)       008E
+_PD                                   (abs)       001B
+_PEIE                                 (abs)       005E
+_PIE1                                 (abs)       008C
+_PIR1                                 (abs)       000C
+_POR                                  (abs)       0471
+_PORTA                                (abs)       0005
+_PORTB                                (abs)       0006
+_PR2                                  (abs)       0092
+_PS0                                  (abs)       0408
+_PS1                                  (abs)       0409
+_PS2                                  (abs)       040A
+_PSA                                  (abs)       040B
+_RA0                                  (abs)       0028
+_RA1                                  (abs)       0029
+_RA2                                  (abs)       002A
+_RA3                                  (abs)       002B
+_RA4                                  (abs)       002C
+_RA5                                  (abs)       002D
+_RA6                                  (abs)       002E
+_RA7                                  (abs)       002F
+_RB0                                  (abs)       0030
+_RB1                                  (abs)       0031
+_RB2                                  (abs)       0032
+_RB3                                  (abs)       0033
+_RB4                                  (abs)       0034
+_RB5                                  (abs)       0035
+_RB6                                  (abs)       0036
+_RB7                                  (abs)       0037
+_RBIE                                 (abs)       005B
+_RBIF                                 (abs)       0058
+_RBPU                                 (abs)       040F
+_RCIE                                 (abs)       0465
+_RCIF                                 (abs)       0065
+_RCREG                                (abs)       001A
+_RCSTA                                (abs)       0018
+_RD                                   (abs)       04E0
+_RF_Module_Rxchar                     text221     0146
+_RF_Module_Rxchar_NewPacketReceived   fnauto0     0056
+_RF_Module_Rxchar_OldPacketNum        (abs)       007D
+_RF_Module_Rxchar_Packetcounter       (abs)       0079
+_RF_Module_Rxchar_ValidPacketReceived fnauto0     0055
+_RF_Module_Rxchar_i                   fnauto0     0057
+_RF_Module_Rxchar_rxbytes             fnauto0     0053
+_RF_Module_Rxchar_status              fnauto0     0054
+_RF_Module_Txchar                     text229     02E0
+_RF_Module_Txchar_Len                 fnauto0     0059
+_RF_Module_Txchar_Txdata              fnauto0     005A
+_RF_Module_Txchar_i                   fnauto0     005C
+_RF_Module_Txchar_status              fnauto0     005B
+_RF_Module_init                       text228     0383
+_RF_Module_init_ErrorCount            fnauto0     0055
+_RF_Module_init_i                     fnauto0     0056
+_RP0                                  (abs)       001D
+_RP1                                  (abs)       001E
+_RX9                                  (abs)       00C6
+_RX9D                                 (abs)       00C0
+_Ref1ms_counter                       (abs)       007B
+_SPBRG                                (abs)       0099
+_SPEN                                 (abs)       00C7
+_SPI_MISO_READ                        text237     0497
+_SPI_MOSI_SETHIGH                     text236     04AA
+_SPI_MOSI_SETLOW                      text241     049D
+_SPI_SCK_SETHIGH                      text240     04A6
+_SPI_SCK_SETLOW                       text239     0489
+_SPI_SS_Disable                       text233     04A2
+_SPI_SS_Enable                        text234     0490
+_SREN                                 (abs)       00C5
+_STATUS                               (abs)       0003
+_SYNC                                 (abs)       04C4
+_Start_Timer                          text218     0400
+_Start_Timer_TimeoutVal               fnauto0     0053
+_Start_Timer_Timer_ID                 fnauto0     0055
+_T0CS                                 (abs)       040D
+_T0IE                                 (abs)       005D
+_T0IF                                 (abs)       005A
+_T0SE                                 (abs)       040C
+_T1CKPS0                              (abs)       0084
+_T1CKPS1                              (abs)       0085
+_T1CON                                (abs)       0010
+_T1OSCEN                              (abs)       0083
+_T1SYNC                               (abs)       0082
+_T2CKPS0                              (abs)       0090
+_T2CKPS1                              (abs)       0091
+_T2CON                                (abs)       0012
+_TMR0                                 (abs)       0001
+_TMR1CS                               (abs)       0081
+_TMR1H                                (abs)       000F
+_TMR1IE                               (abs)       0460
+_TMR1IF                               (abs)       0060
+_TMR1L                                (abs)       000E
+_TMR1ON                               (abs)       0080
+_TMR2                                 (abs)       0011
+_TMR2IE                               (abs)       0461
+_TMR2IF                               (abs)       0061
+_TMR2ON                               (abs)       0092
+_TO                                   (abs)       001C
+_TOUTPS0                              (abs)       0093
+_TOUTPS1                              (abs)       0094
+_TOUTPS2                              (abs)       0095
+_TOUTPS3                              (abs)       0096
+_TRISA                                (abs)       0085
+_TRISA0                               (abs)       0428
+_TRISA1                               (abs)       0429
+_TRISA2                               (abs)       042A
+_TRISA3                               (abs)       042B
+_TRISA4                               (abs)       042C
+_TRISA5                               (abs)       042D
+_TRISA6                               (abs)       042E
+_TRISA7                               (abs)       042F
+_TRISB                                (abs)       0086
+_TRISB0                               (abs)       0430
+_TRISB1                               (abs)       0431
+_TRISB2                               (abs)       0432
+_TRISB3                               (abs)       0433
+_TRISB4                               (abs)       0434
+_TRISB5                               (abs)       0435
+_TRISB6                               (abs)       0436
+_TRISB7                               (abs)       0437
+_TRMT                                 (abs)       04C1
+_TX9                                  (abs)       04C6
+_TX9D                                 (abs)       04C0
+_TXEN                                 (abs)       04C5
+_TXIE                                 (abs)       0464
+_TXIF                                 (abs)       0064
+_TXREG                                (abs)       0019
+_TXSTA                                (abs)       0098
+_TX_LED_Toggle                        text227     0482
+_TimerStart                           (abs)       002F
+_TimerState                           (abs)       0075
+_TimerTimeOutVal                      (abs)       0037
+_VR0                                  (abs)       04F8
+_VR1                                  (abs)       04F9
+_VR2                                  (abs)       04FA
+_VR3                                  (abs)       04FB
+_VRCON                                (abs)       009F
+_VREN                                 (abs)       04FF
+_VROE                                 (abs)       04FE
+_VRR                                  (abs)       04FD
+_WR                                   (abs)       04E1
+_WREN                                 (abs)       04E2
+_WRERR                                (abs)       04E3
+_ZERO                                 (abs)       001A
+__Beeprom_data                        eeprom_data 2100
+__Bnvbit_0                            nvbit_0     028C
+__Bnvbit_1                            nvbit_1     00A0
+__Bnvbit_2                            nvbit_2     0120
+__Bnvbit_3                            nvbit_3     028C
+__Bptbit_0                            ptbit_0     028C
+__Brbit_0                             rbit_0      007E
+__Brbit_1                             rbit_1      00A0
+__Brbit_2                             rbit_2      0120
+__Brbit_3                             rbit_3      028C
+__Hclrtext                            clrtext     0038
+__Hcode                               code        028C
+__Hcommon                             (abs)       007E
+__Hconfig                             config      2008
+__Heeprom_data                        eeprom_data 0000
+__Hend_init                           end_init    0030
+__Hfloat_text0                        float_text0 0146
+__Hfloat_text1                        float_text1 0146
+__Hfloat_text2                        float_text2 0146
+__Hfloat_text3                        float_text3 0146
+__Hfloat_text4                        float_text4 0146
+__Hfnauto0                            fnauto0     006E
+__Hfnauto1                            fnauto1     00A0
+__Hfnauto2                            fnauto2     0120
+__Hfnautoc                            fnautoc     007E
+__Hidata                              idata       0146
+__Hidata_0                            idata_0     0117
+__Hidata_1                            idata_1     0117
+__Hidata_2                            idata_2     0117
+__Hidata_3                            idata_3     028C
+__Hidloc                              idloc       2000
+__Hinit                               init        002E
+__Hinit23                             init23      002E
+__Hintcode                            intcode     0010
+__Hintentry                           intentry    0010
+__Hintret                             intret      0010
+__Hintrtext                           intrtext    028C
+__Hintsave                            intsave     028C
+__Hintsave_1                          intsave_1   028C
+__Hintsave_2                          intsave_2   028C
+__Hintsave_3                          intsave_3   028C
+__Hmaintext                           maintext    005A
+__Hnvbit_0                            nvbit_0     1460
+__Hnvbit_1                            nvbit_1     0500
+__Hnvbit_2                            nvbit_2     0900
+__Hnvbit_3                            nvbit_3     1460
+__Hnvram                              nvram       007E
+__Hnvram_1                            nvram_1     00A0
+__Hnvram_2                            nvram_2     0120
+__Hnvram_3                            nvram_3     028C
+__Hpowerup                            powerup     0117
+__Hpstrings                           pstrings    005A
+__Hptbit_0                            ptbit_0     1460
+__Hramdata                            (abs)       00F0
+__Hrbit_0                             rbit_0      03F0
+__Hrbit_1                             rbit_1      0500
+__Hrbit_2                             rbit_2      0900
+__Hrbit_3                             rbit_3      1460
+__Hrbss_0                             (abs)       0053
+__Hrbss_1                             rbss_1      00A0
+__Hrbss_2                             rbss_2      0120
+__Hrbss_3                             rbss_3      028C
+__Hrdata_0                            rdata_0     007E
+__Hrdata_1                            (abs)       00F0
+__Hrdata_2                            rdata_2     0120
+__Hrdata_3                            rdata_3     028C
+__Hreset_vec                          reset_vec   0001
+__Hstrings                            strings     0117
+__Hstruct                             struct      007E
+__Htemp                               temp        007E
+__Htext                               text        028C
+__Lclrtext                            clrtext     0030
+__Lcode                               code        028C
+__Lcommon                             (abs)       0075
+__Lconfig                             config      2007
+__Leeprom_data                        eeprom_data 0000
+__Lend_init                           end_init    002E
+__Lfloat_text0                        float_text0 0146
+__Lfloat_text1                        float_text1 0146
+__Lfloat_text2                        float_text2 0146
+__Lfloat_text3                        float_text3 0146
+__Lfloat_text4                        float_text4 0146
+__Lfnauto0                            fnauto0     0053
+__Lfnauto1                            fnauto1     00A0
+__Lfnauto2                            fnauto2     0120
+__Lfnautoc                            fnautoc     007E
+__Lidata                              idata       0117
+__Lidata_0                            idata_0     0117
+__Lidata_1                            idata_1     0117
+__Lidata_2                            idata_2     0117
+__Lidata_3                            idata_3     028C
+__Lidloc                              idloc       2000
+__Linit                               init        0010
+__Linit23                             init23      002E
+__Lintcode                            intcode     0010
+__Lintentry                           intentry    0004
+__Lintret                             intret      0010
+__Lintrtext                           intrtext    028C
+__Lintsave                            intsave     028C
+__Lintsave_1                          intsave_1   028C
+__Lintsave_2                          intsave_2   028C
+__Lintsave_3                          intsave_3   028C
+__Lmaintext                           maintext    0038
+__Lnvbit_0                            nvbit_0     1460
+__Lnvbit_1                            nvbit_1     0500
+__Lnvbit_2                            nvbit_2     0900
+__Lnvbit_3                            nvbit_3     1460
+__Lnvram                              nvram       007E
+__Lnvram_1                            nvram_1     00A0
+__Lnvram_2                            nvram_2     0120
+__Lnvram_3                            nvram_3     028C
+__Lpowerup                            powerup     0117
+__Lpstrings                           pstrings    005A
+__Lptbit_0                            ptbit_0     1460
+__Lramdata                            (abs)       00C1
+__Lrbit_0                             rbit_0      03F0
+__Lrbit_1                             rbit_1      0500
+__Lrbit_2                             rbit_2      0900
+__Lrbit_3                             rbit_3      1460
+__Lrbss_0                             (abs)       002F
+__Lrbss_1                             rbss_1      00A0
+__Lrbss_2                             rbss_2      0120
+__Lrbss_3                             rbss_3      028C
+__Lrdata_0                            rdata_0     007E
+__Lrdata_1                            (abs)       00C1
+__Lrdata_2                            rdata_2     0120
+__Lrdata_3                            rdata_3     028C
+__Lreset_vec                          reset_vec   0000
+__Lstrings                            strings     0100
+__Lstruct                             struct      007E
+__Ltemp                               temp        007E
+__Ltext                               text        028C
+__S0                                  (abs)       2008
+__S1                                  (abs)       0120
+__S2                                  (abs)       2100
+__databank                            (abs)       0001
+__end_of_CC2500_Init                  text219     0400
+__end_of_CC2500_ReadReg               text232     0383
+__end_of_CC2500_WriteReg              text230     025A
+__end_of_Delay_ms                     text238     03DA
+__end_of_GetTimer_State               text220     02E0
+__end_of_RF_Module_Rxchar             text221     0207
+__end_of_RF_Module_Txchar             text229     031D
+__end_of_RF_Module_init               text228     03AF
+__end_of_SPI_MISO_READ                text237     049D
+__end_of_SPI_MOSI_SETHIGH             text236     04AC
+__end_of_SPI_MOSI_SETLOW              text241     04A2
+__end_of_SPI_SCK_SETHIGH              text240     04AA
+__end_of_SPI_SCK_SETLOW               text239     0490
+__end_of_SPI_SS_Disable               text233     04A6
+__end_of_SPI_SS_Enable                text234     0497
+__end_of_Start_Timer                  text218     041D
+__end_of_TX_LED_Toggle                text227     0489
+__end_of_command                      text231     0451
+__end_of_init_DigIO                   text223     0479
+__end_of_init_SWTimer                 text224     0351
+__end_of_init_spi                     text225     0482
+__end_of_init_timer                   text222     046C
+__end_of_isr                          intrtext    0437
+__end_of_main                         maintext    005A
+__end_of_read_switchs                 text226     045F
+__end_of_spi_TxByte                   text235     029E
+__stringbase                          strings     010E
+__tempreg                             (abs)       0053
+_bTempRxBuf                           (abs)       003F
+_bTxBuf                               (abs)       0049
+_command                              text231     0437
+_command_a                            fnauto0     005E
+_command_val                          fnauto0     005F
+_exit                                 init        0010
+_init_DigIO                           text223     046C
+_init_SWTimer                         text224     031D
+_init_SWTimer_counter                 fnauto0     0053
+_init_spi                             text225     0479
+_init_timer                           text222     045F
+_isr                                  intrtext    041D
+_main                                 maintext    0038
+_paTable_CC2500                       strings     010F
+_read_switchs                         text226     0451
+_read_switchs_ret_val                 fnauto0     0059
+_spi_TxByte                           text235     025A
+_spi_TxByte_index                     fnauto0     0061
+_spi_TxByte_received_ch               fnauto0     0062
+_spi_TxByte_txchar                    fnauto0     0060
+_temp                                 (abs)       007A
+btemp                                 (abs)       007E
+clear_ram                             clrtext     0030
+interrupt_function                    intentry    0004
+intlevel0                             intentry    0004
+intlevel1                             intentry    0004
+intlevel2                             intentry    0004
+intlevel3                             intentry    0004
+intlevel4                             intentry    0004
+intlevel5                             intentry    0004
+reset_vec                             reset_vec   0000
+saved_w                               (abs)       007F
+start                                 init        0010
+stringdir                             strings     0109
+stringjmp                             strings     010D
+stringtab                             strings     0100

@@ -1,0 +1,594 @@
+[p AUTOSTATIC PIC14 PICMIDHI PICLOMID LITE_MODE ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F628A ]
+"25 C:\Documents and Settings\Jayamma\My Documents\PIC\test\Timerc.c
+[v F305 `(v  1 t 0 ]
+"467 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\RF_Module.c
+[e E299 . `uc
+CRA_ALL 0
+CRA_FIXED 1
+CRA_FIXED_00 2
+CRA_FIXED_00_FF 3
+]
+"5 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\DigIO.c
+[v _init_DigIO `(v  1 e 0 0 ]
+"12
+[v _read_switchs `(uc  1 e 1 0 ]
+"34
+[v _TX_LED_Toggle `(v  1 e 0 0 ]
+"15 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\main.c
+[v _main `(v  1 e 0 0 ]
+"68 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\RF_Module.c
+[v _RF_Module_Txchar `(v  1 e 0 0 ]
+"100
+[v _RF_Module_Rxchar `(uc  1 e 1 0 ]
+"195
+[v _command `(uc  1 e 1 0 ]
+"241
+[v _CC2500_ReadReg `(uc  1 e 1 0 ]
+"256
+[v _CC2500_WriteReg `(uc  1 e 1 0 ]
+"479
+[v _CC2500_Init `(v  1 e 0 0 ]
+"499
+[v _RF_Module_init `(v  1 e 0 0 ]
+"15 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\Spi.c
+[v _init_spi `(v  1 e 0 0 ]
+"23
+[v _spi_TxByte `(uc  1 e 1 0 ]
+"56
+[v _SPI_SS_Enable `(v  1 e 0 0 ]
+"61
+[v _SPI_SS_Disable `(v  1 e 0 0 ]
+"66
+[v _Delay_ms `(v  1 e 0 0 ]
+"75
+[v _SPI_MOSI_SETHIGH `(v  1 e 0 0 ]
+"79
+[v _SPI_MOSI_SETLOW `(v  1 e 0 0 ]
+"83
+[v _SPI_SCK_SETLOW `(v  1 e 0 0 ]
+"87
+[v _SPI_SCK_SETHIGH `(v  1 e 0 0 ]
+"92
+[v _SPI_MISO_READ `(uc  1 e 1 0 ]
+"6 C:\Documents and Settings\Jayamma\My Documents\PIC\test\SW_TIMER.c
+[v _init_SWTimer `(v  1 e 0 0 ]
+"22
+[v _Start_Timer `(v  1 e 0 0 ]
+"30
+[v _GetTimer_State `(uc  1 e 1 0 ]
+"8 C:\Documents and Settings\Jayamma\My Documents\PIC\test\Timerc.c
+[v _init_timer `(v  1 e 0 0 ]
+"25
+[v _isr `I(v  1 s 0 isr ]
+"12 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\main.c
+[v _temp `uc  1 e 1 @122 ]
+"6 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\RF_Module.c
+[v _bTempRxBuf `[10]uc  1 e 10 @63 ]
+"7
+[v _bTxBuf `[10]uc  1 e 10 @73 ]
+"8
+[v _paTable_CC2500 `DC[8]uc  1 e 8 0 ]
+"15
+[v _CC_rfSettings `[47]uc  1 e 47 @193 ]
+"15 C:\Documents and Settings\Jayamma\My Documents\PIC\test\SW_TIMER.h
+[v _TimerStart `[4]ui  1 e 8 @47 ]
+"16
+[v _TimerState `[4]uc  1 e 4 @117 ]
+"17
+[v _TimerTimeOutVal `[4]ui  1 e 8 @55 ]
+"4 C:\Documents and Settings\Jayamma\My Documents\PIC\test\Timerh.h
+[v _Ref1ms_counter `Vui  1 e 2 @123 ]
+"18 C:\Program Files\HI-TECH Software\PICC\PRO\9.60\include\pic16f62xa.h
+[v _INDF `Vuc  1 e 1 @0 ]
+"19
+[v _TMR0 `Vuc  1 e 1 @1 ]
+"20
+[v _PCL `Vuc  1 e 1 @2 ]
+"21
+[v _STATUS `Vuc  1 e 1 @3 ]
+"22
+[v _FSR `uc  1 e 1 @4 ]
+"23
+[v _PORTA `Vuc  1 e 1 @5 ]
+"24
+[v _PORTB `Vuc  1 e 1 @6 ]
+"25
+[v _PCLATH `Vuc  1 e 1 @10 ]
+"26
+[v _INTCON `Vuc  1 e 1 @11 ]
+"27
+[v _PIR1 `Vuc  1 e 1 @12 ]
+"28
+[v _TMR1L `Vuc  1 e 1 @14 ]
+"29
+[v _TMR1H `Vuc  1 e 1 @15 ]
+"30
+[v _T1CON `Vuc  1 e 1 @16 ]
+"31
+[v _TMR2 `Vuc  1 e 1 @17 ]
+"32
+[v _T2CON `Vuc  1 e 1 @18 ]
+"33
+[v _CCPR1L `Vuc  1 e 1 @21 ]
+"34
+[v _CCPR1H `Vuc  1 e 1 @22 ]
+"35
+[v _CCP1CON `Vuc  1 e 1 @23 ]
+"36
+[v _RCSTA `Vuc  1 e 1 @24 ]
+"37
+[v _TXREG `Vuc  1 e 1 @25 ]
+"38
+[v _RCREG `Vuc  1 e 1 @26 ]
+"39
+[v _CMCON `Vuc  1 e 1 @31 ]
+"40
+[v _OPTION `uc  1 e 1 @129 ]
+"41
+[v _TRISA `Vuc  1 e 1 @133 ]
+"42
+[v _TRISB `Vuc  1 e 1 @134 ]
+"43
+[v _PIE1 `uc  1 e 1 @140 ]
+"44
+[v _PCON `Vuc  1 e 1 @142 ]
+"45
+[v _PR2 `uc  1 e 1 @146 ]
+"46
+[v _TXSTA `Vuc  1 e 1 @152 ]
+"47
+[v _SPBRG `uc  1 e 1 @153 ]
+"48
+[v _EEDATA `Vuc  1 e 1 @154 ]
+"49
+[v _EEADR `Vuc  1 e 1 @155 ]
+"50
+[v _EECON1 `Vuc  1 e 1 @156 ]
+"51
+[v _EECON2 `Vuc  1 e 1 @157 ]
+"52
+[v _VRCON `uc  1 e 1 @159 ]
+"56
+[v _CARRY `Vb  1 e 0 @24 ]
+"57
+[v _DC `Vb  1 e 0 @25 ]
+"58
+[v _ZERO `Vb  1 e 0 @26 ]
+"59
+[v _PD `Vb  1 e 0 @27 ]
+"60
+[v _TO `Vb  1 e 0 @28 ]
+"61
+[v _RP0 `b  1 e 0 @29 ]
+"62
+[v _RP1 `b  1 e 0 @30 ]
+"63
+[v _IRP `b  1 e 0 @31 ]
+"66
+[v _RA0 `Vb  1 e 0 @40 ]
+"67
+[v _RA1 `Vb  1 e 0 @41 ]
+"68
+[v _RA2 `Vb  1 e 0 @42 ]
+"69
+[v _RA3 `Vb  1 e 0 @43 ]
+"70
+[v _RA4 `Vb  1 e 0 @44 ]
+"71
+[v _RA5 `Vb  1 e 0 @45 ]
+"72
+[v _RA6 `Vb  1 e 0 @46 ]
+"73
+[v _RA7 `Vb  1 e 0 @47 ]
+"76
+[v _RB0 `Vb  1 e 0 @48 ]
+"77
+[v _RB1 `Vb  1 e 0 @49 ]
+"78
+[v _RB2 `Vb  1 e 0 @50 ]
+"79
+[v _RB3 `Vb  1 e 0 @51 ]
+"80
+[v _RB4 `Vb  1 e 0 @52 ]
+"81
+[v _RB5 `Vb  1 e 0 @53 ]
+"82
+[v _RB6 `Vb  1 e 0 @54 ]
+"83
+[v _RB7 `Vb  1 e 0 @55 ]
+"86
+[v _RBIF `Vb  1 e 0 @88 ]
+"87
+[v _INTF `Vb  1 e 0 @89 ]
+"88
+[v _T0IF `Vb  1 e 0 @90 ]
+"89
+[v _RBIE `b  1 e 0 @91 ]
+"90
+[v _INTE `b  1 e 0 @92 ]
+"91
+[v _T0IE `b  1 e 0 @93 ]
+"92
+[v _PEIE `b  1 e 0 @94 ]
+"93
+[v _GIE `Vb  1 e 0 @95 ]
+"96
+[v _TMR1IF `Vb  1 e 0 @96 ]
+"97
+[v _TMR2IF `Vb  1 e 0 @97 ]
+"98
+[v _CCP1IF `Vb  1 e 0 @98 ]
+"99
+[v _TXIF `Vb  1 e 0 @100 ]
+"100
+[v _RCIF `Vb  1 e 0 @101 ]
+"101
+[v _CMIF `Vb  1 e 0 @102 ]
+"102
+[v _EEIF `Vb  1 e 0 @103 ]
+"105
+[v _TMR1ON `b  1 e 0 @128 ]
+"106
+[v _TMR1CS `b  1 e 0 @129 ]
+"107
+[v _T1SYNC `b  1 e 0 @130 ]
+"108
+[v _T1OSCEN `b  1 e 0 @131 ]
+"109
+[v _T1CKPS0 `b  1 e 0 @132 ]
+"110
+[v _T1CKPS1 `b  1 e 0 @133 ]
+"113
+[v _T2CKPS0 `b  1 e 0 @144 ]
+"114
+[v _T2CKPS1 `b  1 e 0 @145 ]
+"115
+[v _TMR2ON `b  1 e 0 @146 ]
+"116
+[v _TOUTPS0 `b  1 e 0 @147 ]
+"117
+[v _TOUTPS1 `b  1 e 0 @148 ]
+"118
+[v _TOUTPS2 `b  1 e 0 @149 ]
+"119
+[v _TOUTPS3 `b  1 e 0 @150 ]
+"122
+[v _CCP1M0 `b  1 e 0 @184 ]
+"123
+[v _CCP1M1 `b  1 e 0 @185 ]
+"124
+[v _CCP1M2 `b  1 e 0 @186 ]
+"125
+[v _CCP1M3 `b  1 e 0 @187 ]
+"126
+[v _CCP1Y `Vb  1 e 0 @188 ]
+"127
+[v _CCP1X `Vb  1 e 0 @189 ]
+"130
+[v _RX9D `Vb  1 e 0 @192 ]
+"131
+[v _OERR `Vb  1 e 0 @193 ]
+"132
+[v _FERR `Vb  1 e 0 @194 ]
+"133
+[v _ADEN `b  1 e 0 @195 ]
+"134
+[v _CREN `b  1 e 0 @196 ]
+"135
+[v _SREN `b  1 e 0 @197 ]
+"136
+[v _RX9 `b  1 e 0 @198 ]
+"137
+[v _SPEN `b  1 e 0 @199 ]
+"140
+[v _CM0 `b  1 e 0 @248 ]
+"141
+[v _CM1 `b  1 e 0 @249 ]
+"142
+[v _CM2 `b  1 e 0 @250 ]
+"143
+[v _CIS `b  1 e 0 @251 ]
+"144
+[v _C1INV `b  1 e 0 @252 ]
+"145
+[v _C2INV `b  1 e 0 @253 ]
+"146
+[v _C1OUT `Vb  1 e 0 @254 ]
+"147
+[v _C2OUT `Vb  1 e 0 @255 ]
+"150
+[v _PS0 `b  1 e 0 @1032 ]
+"151
+[v _PS1 `b  1 e 0 @1033 ]
+"152
+[v _PS2 `b  1 e 0 @1034 ]
+"153
+[v _PSA `b  1 e 0 @1035 ]
+"154
+[v _T0SE `b  1 e 0 @1036 ]
+"155
+[v _T0CS `b  1 e 0 @1037 ]
+"156
+[v _INTEDG `b  1 e 0 @1038 ]
+"157
+[v _RBPU `b  1 e 0 @1039 ]
+"160
+[v _TRISA0 `Vb  1 e 0 @1064 ]
+"161
+[v _TRISA1 `Vb  1 e 0 @1065 ]
+"162
+[v _TRISA2 `Vb  1 e 0 @1066 ]
+"163
+[v _TRISA3 `Vb  1 e 0 @1067 ]
+"164
+[v _TRISA4 `Vb  1 e 0 @1068 ]
+"165
+[v _TRISA5 `Vb  1 e 0 @1069 ]
+"166
+[v _TRISA6 `Vb  1 e 0 @1070 ]
+"167
+[v _TRISA7 `Vb  1 e 0 @1071 ]
+"170
+[v _TRISB0 `Vb  1 e 0 @1072 ]
+"171
+[v _TRISB1 `Vb  1 e 0 @1073 ]
+"172
+[v _TRISB2 `Vb  1 e 0 @1074 ]
+"173
+[v _TRISB3 `Vb  1 e 0 @1075 ]
+"174
+[v _TRISB4 `Vb  1 e 0 @1076 ]
+"175
+[v _TRISB5 `Vb  1 e 0 @1077 ]
+"176
+[v _TRISB6 `Vb  1 e 0 @1078 ]
+"177
+[v _TRISB7 `Vb  1 e 0 @1079 ]
+"180
+[v _TMR1IE `b  1 e 0 @1120 ]
+"181
+[v _TMR2IE `b  1 e 0 @1121 ]
+"182
+[v _CCP1IE `b  1 e 0 @1122 ]
+"183
+[v _TXIE `b  1 e 0 @1124 ]
+"184
+[v _RCIE `b  1 e 0 @1125 ]
+"185
+[v _CMIE `b  1 e 0 @1126 ]
+"186
+[v _EEIE `b  1 e 0 @1127 ]
+"189
+[v _BOR `Vb  1 e 0 @1136 ]
+"190
+[v _POR `Vb  1 e 0 @1137 ]
+"191
+[v _OSCF `b  1 e 0 @1139 ]
+"194
+[v _TX9D `Vb  1 e 0 @1216 ]
+"195
+[v _TRMT `Vb  1 e 0 @1217 ]
+"196
+[v _BRGH `b  1 e 0 @1218 ]
+"197
+[v _SYNC `b  1 e 0 @1220 ]
+"198
+[v _TXEN `b  1 e 0 @1221 ]
+"199
+[v _TX9 `b  1 e 0 @1222 ]
+"200
+[v _CSRC `b  1 e 0 @1223 ]
+"203
+[v _RD `Vb  1 e 0 @1248 ]
+"204
+[v _WR `Vb  1 e 0 @1249 ]
+"205
+[v _WREN `Vb  1 e 0 @1250 ]
+"206
+[v _WRERR `Vb  1 e 0 @1251 ]
+"209
+[v _VR0 `b  1 e 0 @1272 ]
+"210
+[v _VR1 `b  1 e 0 @1273 ]
+"211
+[v _VR2 `b  1 e 0 @1274 ]
+"212
+[v _VR3 `b  1 e 0 @1275 ]
+"213
+[v _VRR `b  1 e 0 @1277 ]
+"214
+[v _VROE `b  1 e 0 @1278 ]
+"215
+[v _VREN `b  1 e 0 @1279 ]
+"15 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\main.c
+[v _main `(v  1 e 0 0 ]
+{
+"41
+} 0
+"22 C:\Documents and Settings\Jayamma\My Documents\PIC\test\SW_TIMER.c
+[v _Start_Timer `(v  1 e 0 0 ]
+{
+[v _Start_Timer_Timer_ID `uc  1 a 1 wreg ]
+[v _Start_Timer_Timer_ID `uc  1 a 1 wreg ]
+[v _Start_Timer_TimeoutVal `ui  1 p 2 0 ]
+"26
+} 1
+"479 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\RF_Module.c
+[v _CC2500_Init `(v  1 e 0 0 ]
+{
+"480
+[v _CC2500_Init_i `uc  1 a 1 0 ]
+"496
+} 1
+"30 C:\Documents and Settings\Jayamma\My Documents\PIC\test\SW_TIMER.c
+[v _GetTimer_State `(uc  1 e 1 0 ]
+{
+[v _GetTimer_State_TimerID `uc  1 a 1 wreg ]
+[v _GetTimer_State_TimerID `uc  1 a 1 wreg ]
+"37
+} 1
+"100 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\RF_Module.c
+[v _RF_Module_Rxchar `(uc  1 e 1 0 ]
+{
+"104
+[v _RF_Module_Rxchar_status `uc  1 a 1 1 ]
+"101
+[v _RF_Module_Rxchar_rxbytes `uc  1 a 1 0 ]
+"102
+[v _RF_Module_Rxchar_NewPacketReceived `uc  1 a 1 3 ]
+[v _RF_Module_Rxchar_ValidPacketReceived `uc  1 a 1 2 ]
+"101
+[v _RF_Module_Rxchar_i `uc  1 a 1 4 ]
+"103
+[v _RF_Module_Rxchar_OldPacketNum `uc  1 s 1 OldPacketNum ]
+"190
+} 5
+"8 C:\Documents and Settings\Jayamma\My Documents\PIC\test\Timerc.c
+[v _init_timer `(v  1 e 0 0 ]
+{
+"18
+} 0
+"5 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\DigIO.c
+[v _init_DigIO `(v  1 e 0 0 ]
+{
+"9
+} 0
+"6 C:\Documents and Settings\Jayamma\My Documents\PIC\test\SW_TIMER.c
+[v _init_SWTimer `(v  1 e 0 0 ]
+{
+"7
+[v _init_SWTimer_counter `uc  1 a 1 0 ]
+"18
+} 1
+"15 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\Spi.c
+[v _init_spi `(v  1 e 0 0 ]
+{
+"20
+} 0
+"12 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\DigIO.c
+[v _read_switchs `(uc  1 e 1 0 ]
+{
+"13
+[v _read_switchs_ret_val `uc  1 a 1 0 ]
+"20
+} 1
+"34
+[v _TX_LED_Toggle `(v  1 e 0 0 ]
+{
+"36
+} 0
+"499 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\RF_Module.c
+[v _RF_Module_init `(v  1 e 0 0 ]
+{
+"500
+[v _RF_Module_init_ErrorCount `uc  1 a 1 0 ]
+[v _RF_Module_init_i `uc  1 a 1 1 ]
+"517
+} 2
+"68
+[v _RF_Module_Txchar `(v  1 e 0 0 ]
+{
+[v _RF_Module_Txchar_Txdata `*.0uc  1 a 1 wreg ]
+"69
+[v _RF_Module_Txchar_status `uc  1 a 1 1 ]
+[v _RF_Module_Txchar_i `uc  1 a 1 2 ]
+"68
+[v _RF_Module_Txchar_Txdata `*.0uc  1 a 1 wreg ]
+[v _RF_Module_Txchar_Len `uc  1 p 1 0 ]
+"97
+} 3
+"256
+[v _CC2500_WriteReg `(uc  1 e 1 0 ]
+{
+"257
+[v _CC2500_WriteReg_i `uc  1 a 1 0 ]
+"256
+[v _CC2500_WriteReg_addr `uc  1 a 1 wreg ]
+[v _CC2500_WriteReg_addr `uc  1 a 1 wreg ]
+[v _CC2500_WriteReg_value `uc  1 p 1 0 ]
+"282
+} 2
+"195
+[v _command `(uc  1 e 1 0 ]
+{
+[v _command_a `uc  1 a 1 wreg ]
+"196
+[v _command_val `uc  1 a 1 1 ]
+"195
+[v _command_a `uc  1 a 1 wreg ]
+"202
+} 2
+"241
+[v _CC2500_ReadReg `(uc  1 e 1 0 ]
+{
+[v _CC2500_ReadReg_addr `uc  1 a 1 wreg ]
+"242
+[v _CC2500_ReadReg_value `uc  1 a 1 1 ]
+"241
+[v _CC2500_ReadReg_addr `uc  1 a 1 wreg ]
+"253
+} 2
+"61 C:\Documents and Settings\Jayamma\My Documents\PIC\PICCC2500_11Nov2014\Spi.c
+[v _SPI_SS_Disable `(v  1 e 0 0 ]
+{
+"63
+} 0
+"56
+[v _SPI_SS_Enable `(v  1 e 0 0 ]
+{
+"58
+} 0
+"23
+[v _spi_TxByte `(uc  1 e 1 0 ]
+{
+[v _spi_TxByte_txchar `uc  1 a 1 wreg ]
+"25
+[v _spi_TxByte_index `uc  1 a 1 1 ]
+[v _spi_TxByte_received_ch `uc  1 a 1 2 ]
+"23
+[v _spi_TxByte_txchar `uc  1 a 1 wreg ]
+"51
+} 3
+"75
+[v _SPI_MOSI_SETHIGH `(v  1 e 0 0 ]
+{
+"77
+} 0
+"92
+[v _SPI_MISO_READ `(uc  1 e 1 0 ]
+{
+"94
+} 0
+"66
+[v _Delay_ms `(v  1 e 0 0 ]
+{
+"67
+[v _Delay_ms_y `ui  1 a 2 2 ]
+[v _Delay_ms_x `ui  1 a 2 0 ]
+"66
+[v _Delay_ms_delayms `ui  1 p 2 0 ]
+"72
+} 4
+"83
+[v _SPI_SCK_SETLOW `(v  1 e 0 0 ]
+{
+"85
+} 0
+"87
+[v _SPI_SCK_SETHIGH `(v  1 e 0 0 ]
+{
+"89
+} 0
+"79
+[v _SPI_MOSI_SETLOW `(v  1 e 0 0 ]
+{
+"81
+} 0
+"25 C:\Documents and Settings\Jayamma\My Documents\PIC\test\Timerc.c
+[v _isr `I(v  1 s 0 isr ]
+{
+"36
+} 0
